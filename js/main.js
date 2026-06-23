@@ -35,13 +35,21 @@
   });
 })();
 (function(){
-  // gentle reveal on scroll
-  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  // gentle reveal on scroll (sections + staggered grids)
+  var els=[].slice.call(document.querySelectorAll('.reveal, .reveal-stagger'));
   if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){
     els.forEach(function(el){el.classList.add('in')}); return;
   }
   var io=new IntersectionObserver(function(en){
-    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{rootMargin:'0px 0px -10% 0px',threshold:0.08});
+    en.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target;
+      if(el.classList.contains('reveal-stagger')){
+        [].forEach.call(el.children,function(c,i){ c.style.transitionDelay=(i*60)+'ms'; });
+      }
+      el.classList.add('in');
+      io.unobserve(el);
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:0.06});
   els.forEach(function(el){io.observe(el)});
 })();
