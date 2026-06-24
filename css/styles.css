@@ -280,21 +280,25 @@ p{margin:0}
    ============================================================ */
 
 /* ---- Home hero (slideshow + slogan + decor + address pill) ---- */
-.hhero{position:relative;width:100%;height:clamp(560px,72vh,800px);overflow:hidden;border-radius:0 0 60px 30px;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;padding:16px 24px}
+.hhero{position:relative;width:100%;height:100vh;height:100svh;overflow:hidden;border-radius:0 0 60px 30px;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;padding:16px 24px}
 .hhero-bg{position:absolute;inset:0;z-index:1}
 .hhero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.3s ease}
 .hhero-bg img.on{opacity:1}
 .hhero-bg .ov{position:absolute;inset:0;background:rgba(52,29,28,0.53)}
 .hhero-slogan{position:relative;z-index:3;flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:480px;width:100%}
-.hhero-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:8px 0;width:100%;isolation:isolate}
+.hhero-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:8px 0;width:100%;isolation:isolate;animation:heroBreathe 8s ease-in-out infinite}
 .hhero-box .slogan{position:relative;z-index:9;width:100%;font-family:var(--fr);font-weight:700;font-size:36px;color:#fff;text-align:center;letter-spacing:-0.72px;line-height:1.25}
-.hhero-box .decor{position:absolute;pointer-events:none}
-.hd-glow{left:50%;top:50%;width:82px;height:82px;transform:translate(-50%,-50%);z-index:3;background:radial-gradient(ellipse at center, rgba(43,5,5,0.55), rgba(43,5,5,0) 70%);filter:blur(14px)}
-.hd-botplate{left:50%;bottom:-19.5px;width:129px;height:25px;transform:translateX(-50%) rotate(180deg) scaleY(-1);z-index:6}
-.hd-topplate{left:50%;top:-20.5px;width:129px;height:24px;transform:translateX(-50%) rotate(180deg);z-index:4}
-.hd-fork{left:-11.63px;top:50%;width:40.327px;height:123.125px;transform:translateY(-50%) rotate(-30deg);z-index:5}
-.hd-knife{right:1.9px;top:50%;width:66.095px;height:121.371px;transform:translateY(-50%);z-index:2}
+.hhero-box .decor{position:absolute;pointer-events:none;will-change:translate}
+.hd-glow{left:50%;top:50%;width:82px;height:82px;transform:translate(-50%,-50%);z-index:3;background:radial-gradient(ellipse at center, rgba(43,5,5,0.55), rgba(43,5,5,0) 70%);filter:blur(14px);animation:heroGlow 5s ease-in-out infinite}
+.hd-botplate{left:50%;bottom:-19.5px;width:129px;height:25px;transform:translateX(-50%);z-index:6;animation:floatA 6.5s ease-in-out .4s infinite}
+.hd-topplate{left:50%;top:-20.5px;width:129px;height:24px;transform:translateX(-50%);z-index:4;animation:floatA 6s ease-in-out infinite}
+.hd-fork{left:-11.63px;top:50%;width:51px;height:127px;transform:translateY(-50%);z-index:5;animation:floatB 7s ease-in-out infinite}
+.hd-knife{right:1.9px;top:50%;width:67px;height:122px;transform:translateY(-50%);z-index:2;animation:floatB 6.2s ease-in-out .6s infinite}
 .hhero-box .decor img{width:100%;height:100%;display:block;object-fit:contain}
+@keyframes heroBreathe{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes floatA{0%,100%{translate:0 -3px}50%{translate:0 4px}}
+@keyframes floatB{0%,100%{translate:0 3px}50%{translate:0 -5px}}
+@keyframes heroGlow{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(.92)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}}
 .hhero-pill{position:relative;z-index:2;background:var(--hero-pill);display:flex;align-items:center;justify-content:center;max-width:1200px;padding:5px 15px;border-radius:999px}
 .hhero-pill p{font-size:12px;color:#bfa8a8;text-align:center;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90vw}
 
@@ -344,7 +348,7 @@ p{margin:0}
 
 /* ---- Home responsive ---- */
 @media(max-width:900px){
-  .hhero{height:clamp(480px,80vh,640px);border-radius:0 0 40px 20px}
+  .hhero{height:100svh;border-radius:0 0 40px 20px}
   .hhero-box .slogan{font-size:30px;letter-spacing:-0.6px}
   .h-sec{padding:48px 0}
   .head-l{margin-bottom:24px}
@@ -362,3 +366,6 @@ p{margin:0}
 }
 .head-l .h2{font-size:36px;letter-spacing:-0.36px;line-height:1.4}
 @media(max-width:560px){ .head-l .h2{font-size:28px} }
+@media (prefers-reduced-motion:reduce){
+  .hhero-box,.hd-glow,.hd-topplate,.hd-botplate,.hd-fork,.hd-knife{animation:none!important}
+}
