@@ -274,3 +274,91 @@ p{margin:0}
   .sis-name{font-size:16px}.sis-addr{font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){ .ig-track{animation:none} .hero .slide{transition:none} .js .reveal{opacity:1;transform:none;transition:none} }
+
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
+
+/* ---- Home hero (slideshow + slogan + decor + address pill) ---- */
+.hhero{position:relative;width:100%;height:clamp(560px,72vh,800px);overflow:hidden;border-radius:0 0 60px 30px;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;padding:16px 24px}
+.hhero-bg{position:absolute;inset:0;z-index:1}
+.hhero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.3s ease}
+.hhero-bg img.on{opacity:1}
+.hhero-bg .ov{position:absolute;inset:0;background:rgba(52,29,28,0.53)}
+.hhero-slogan{position:relative;z-index:3;flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:480px;width:100%}
+.hhero-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:8px 0;width:100%;isolation:isolate}
+.hhero-box .slogan{position:relative;z-index:9;width:100%;font-family:var(--fr);font-weight:700;font-size:36px;color:#fff;text-align:center;letter-spacing:-0.72px;line-height:1.25}
+.hhero-box .decor{position:absolute;pointer-events:none}
+.hd-glow{left:50%;top:50%;width:82px;height:82px;transform:translate(-50%,-50%);z-index:3;background:radial-gradient(ellipse at center, rgba(43,5,5,0.55), rgba(43,5,5,0) 70%);filter:blur(14px)}
+.hd-botplate{left:50%;bottom:-19.5px;width:129px;height:25px;transform:translateX(-50%) rotate(180deg) scaleY(-1);z-index:6}
+.hd-topplate{left:50%;top:-20.5px;width:129px;height:24px;transform:translateX(-50%) rotate(180deg);z-index:4}
+.hd-fork{left:-11.63px;top:50%;width:40.327px;height:123.125px;transform:translateY(-50%) rotate(-30deg);z-index:5}
+.hd-knife{right:1.9px;top:50%;width:66.095px;height:121.371px;transform:translateY(-50%);z-index:2}
+.hhero-box .decor img{width:100%;height:100%;display:block;object-fit:contain}
+.hhero-pill{position:relative;z-index:2;background:var(--hero-pill);display:flex;align-items:center;justify-content:center;max-width:1200px;padding:5px 15px;border-radius:999px}
+.hhero-pill p{font-size:12px;color:#bfa8a8;text-align:center;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90vw}
+
+/* ---- Section heads (left-aligned) ---- */
+.h-sec{padding:64px 0}
+.head-l{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin-bottom:32px}
+.head-l .overline{text-align:left}
+
+/* ---- Our Restaurants & Bars ---- */
+.rest-group + .rest-group{margin-top:24px}
+.rest-sub{font-family:var(--dm);font-weight:600;font-size:16px;color:#775151;letter-spacing:-0.16px;line-height:1.4;padding-top:8px;margin-bottom:16px}
+.rest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.rcard{position:relative;display:flex;flex-direction:column;align-items:center;height:200px;border-radius:5px;overflow:hidden;background:linear-gradient(180deg,var(--red) 0%,#fff 75%);text-decoration:none;transition:transform .22s ease, box-shadow .22s ease}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(40,20,15,.16)}
+.rcard-img{flex:1 1 0;min-height:0;width:100%;padding:5px 5px 0;display:flex;overflow:hidden}
+.rcard-img img{width:100%;height:100%;object-fit:cover;border-radius:3px;transition:transform .35s ease}
+.rcard:hover .rcard-img img{transform:scale(1.05)}
+.rcard-bar{position:relative;background:#fff;width:100%;display:flex;flex-direction:column;align-items:center;padding:5px 20px 5px 12px;isolation:isolate}
+.rcard-textrow{display:flex;gap:10px;align-items:center;justify-content:center;width:100%;position:relative;z-index:2}
+.rcard-name{flex:1 1 0;min-width:0;font-family:var(--fr);font-weight:600;font-size:14px;color:#1a1010;letter-spacing:-0.14px;line-height:1.25}
+.rcard-logo{width:56px;height:32px;position:relative;flex:0 0 auto}
+.rcard-logo .box{position:absolute;bottom:0;left:0;width:56px;height:56px;background:#fff;display:flex;align-items:center;justify-content:center}
+.rcard-logo .box img{max-width:100%;max-height:100%;object-fit:contain}
+.rcard-decor{position:absolute;right:0;top:-34px;width:119px;height:34px;transform:rotate(180deg);z-index:1}
+.rcard-decor img{width:100%;height:100%;display:block}
+
+/* ---- Events (What's on) ---- */
+.ev-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:32px}
+.ev-card{position:relative;aspect-ratio:328/464;border-radius:5px;overflow:hidden;display:block}
+.ev-card > img{width:100%;height:100%;object-fit:cover}
+.ev-hover{position:absolute;left:4px;right:4.4px;bottom:3.93px;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;padding:16px;border-radius:5px;opacity:0;transform:translateY(8px);transition:opacity .22s ease, transform .22s ease}
+.ev-card:hover .ev-hover{opacity:1;transform:none}
+.ev-title{font-family:var(--fr);font-weight:600;font-size:16px;color:#e21c19;letter-spacing:-0.16px;line-height:1.4;text-align:center}
+.ev-date{font-size:16px;color:var(--body);line-height:1.5;text-align:center}
+.ev-viewall{align-self:flex-start}
+
+/* ---- Shortcut cards ---- */
+.h-short{padding:120px 0;background:linear-gradient(to bottom,#FAF2F0,#FCC9C7)}
+.short-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.scard{position:relative;height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;border-radius:15px 5px 30px 5px;overflow:hidden;text-decoration:none}
+.scard-bg{position:absolute;inset:0;z-index:1}
+.scard-bg img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.scard-bg .ov{position:absolute;inset:0;background:rgba(52,29,28,0.53);transition:background .25s ease}
+.scard .label{position:relative;z-index:2;width:100%;font-family:var(--fr);font-weight:700;font-size:30px;color:#fff;text-align:center;letter-spacing:-0.3px;line-height:1.4}
+.scard:hover .scard-bg img{transform:scale(1.05)}
+.scard:hover .scard-bg .ov{background:rgba(52,29,28,0.4)}
+
+/* ---- Home responsive ---- */
+@media(max-width:900px){
+  .hhero{height:clamp(480px,80vh,640px);border-radius:0 0 40px 20px}
+  .hhero-box .slogan{font-size:30px;letter-spacing:-0.6px}
+  .h-sec{padding:48px 0}
+  .head-l{margin-bottom:24px}
+  .rest-grid{grid-template-columns:repeat(2,1fr)}
+  .ev-grid{grid-template-columns:repeat(3,1fr)}
+  .short-grid{grid-template-columns:repeat(3,1fr)}
+  .h-short{padding:72px 0}
+}
+@media(max-width:560px){
+  .hhero-box .slogan{font-size:26px}
+  .hd-fork,.hd-knife{display:none}
+  .ev-grid{grid-template-columns:repeat(2,1fr)}
+  .short-grid{grid-template-columns:repeat(2,1fr)}
+  .ev-title,.ev-date{font-size:14px}
+}
+.head-l .h2{font-size:36px;letter-spacing:-0.36px;line-height:1.4}
+@media(max-width:560px){ .head-l .h2{font-size:28px} }
