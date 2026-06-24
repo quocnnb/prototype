@@ -53,3 +53,19 @@
   },{rootMargin:'0px 0px -10% 0px',threshold:0.06});
   els.forEach(function(el){io.observe(el)});
 })();
+
+(function(){
+  // home hero slideshow: crossfade bg + sync the name/address pill
+  var hero=document.getElementById('hhero'); if(!hero) return;
+  var slides=[].slice.call(hero.querySelectorAll('.hhero-bg img'));
+  var pill=document.getElementById('hheroPill');
+  if(slides.length<2) return;
+  var i=0;
+  function show(n){
+    slides[i].classList.remove('on'); i=n; slides[i].classList.add('on');
+    if(pill){ var info=slides[i].getAttribute('data-info'); if(info) pill.textContent=info; }
+  }
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setInterval(function(){ show((i+1)%slides.length); },5000);
+  }
+})();
