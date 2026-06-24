@@ -280,12 +280,12 @@ p{margin:0}
    ============================================================ */
 
 /* ---- Home hero (slideshow + slogan + decor + address pill) ---- */
-.hhero{position:relative;width:100%;height:100vh;height:100svh;overflow:hidden;border-radius:0 0 60px 30px;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;padding:16px 24px}
+.hhero{position:relative;width:100%;height:calc(100vh - 48px);height:calc(100svh - 48px);overflow:hidden;border-radius:0 0 60px 30px;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;padding:16px 24px}
 .hhero-bg{position:absolute;inset:0;z-index:1}
 .hhero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.3s ease}
 .hhero-bg img.on{opacity:1}
 .hhero-bg .ov{position:absolute;inset:0;background:rgba(52,29,28,0.53)}
-.hhero-slogan{position:relative;z-index:3;flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:480px;width:100%}
+.hhero-slogan{position:relative;z-index:3;flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:470px;width:100%}
 .hhero-box{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:8px 0;width:100%;isolation:isolate;animation:heroBreathe 8s ease-in-out infinite}
 .hhero-box .slogan{position:relative;z-index:9;width:100%;font-family:var(--fr);font-weight:700;font-size:36px;color:#fff;text-align:center;letter-spacing:-0.72px;line-height:1.25}
 .hhero-box .decor{position:absolute;pointer-events:none;will-change:translate}
@@ -313,16 +313,17 @@ p{margin:0}
 .rest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .rcard{position:relative;display:flex;flex-direction:column;align-items:center;height:200px;border-radius:5px;overflow:hidden;background:linear-gradient(180deg,var(--red) 0%,#fff 75%);text-decoration:none;transition:transform .22s ease, box-shadow .22s ease}
 .rcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(40,20,15,.16)}
-.rcard-img{flex:1 1 0;min-height:0;width:100%;padding:5px 5px 0;display:flex;overflow:hidden}
-.rcard-img img{width:100%;height:100%;object-fit:cover;border-radius:3px;transition:transform .35s ease}
-.rcard:hover .rcard-img img{transform:scale(1.05)}
+.rcard-img{flex:1 1 0;min-height:0;width:100%;padding:5px 5px 0;display:flex}
+.rcard-imgbox{flex:1 1 0;min-width:0;height:100%;border-radius:3px;overflow:hidden}
+.rcard-imgbox img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.rcard:hover .rcard-imgbox img{transform:scale(1.05)}
 .rcard-bar{position:relative;background:#fff;width:100%;display:flex;flex-direction:column;align-items:center;padding:5px 20px 5px 12px;isolation:isolate}
 .rcard-textrow{display:flex;gap:10px;align-items:center;justify-content:center;width:100%;position:relative;z-index:2}
 .rcard-name{flex:1 1 0;min-width:0;font-family:var(--fr);font-weight:600;font-size:14px;color:#1a1010;letter-spacing:-0.14px;line-height:1.25}
 .rcard-logo{width:56px;height:32px;position:relative;flex:0 0 auto}
 .rcard-logo .box{position:absolute;bottom:0;left:0;width:56px;height:56px;background:#fff;display:flex;align-items:center;justify-content:center}
 .rcard-logo .box img{max-width:100%;max-height:100%;object-fit:contain}
-.rcard-decor{position:absolute;right:0;top:-34px;width:119px;height:34px;transform:rotate(180deg);z-index:1}
+.rcard-decor{position:absolute;right:0;top:-34px;width:119px;height:34px;z-index:1}
 .rcard-decor img{width:100%;height:100%;display:block}
 
 /* ---- Events (What's on) ---- */
@@ -348,8 +349,10 @@ p{margin:0}
 
 /* ---- Home responsive ---- */
 @media(max-width:900px){
-  .hhero{height:100svh;border-radius:0 0 40px 20px}
+  .hhero{height:calc(100svh - 48px);border-radius:0 0 40px 20px}
   .hhero-box .slogan{font-size:30px;letter-spacing:-0.6px}
+  .hhero-pill{max-width:100%;padding:6px 18px}
+  .hhero-pill p{white-space:normal}
   .h-sec{padding:48px 0}
   .head-l{margin-bottom:24px}
   .rest-grid{grid-template-columns:repeat(2,1fr)}
@@ -359,9 +362,11 @@ p{margin:0}
 }
 @media(max-width:560px){
   .hhero-box .slogan{font-size:26px}
-  .hd-fork,.hd-knife{display:none}
+  .rest-grid{grid-template-columns:1fr}
+  .rcard{height:160px}
   .ev-grid{grid-template-columns:repeat(2,1fr)}
-  .short-grid{grid-template-columns:repeat(2,1fr)}
+  .short-grid{grid-template-columns:1fr}
+  .scard{height:120px}
   .ev-title,.ev-date{font-size:14px}
 }
 .head-l .h2{font-size:36px;letter-spacing:-0.36px;line-height:1.4}
