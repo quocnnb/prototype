@@ -149,3 +149,34 @@ To add/replace an icon: drop the SVG in `assets/`, add a matching `<symbol id="i
 ## 8. Applying to other outlets
 
 This page is the template. For each additional outlet, reuse `index.html` and swap: hero photos, intro copy + script logo, address/hours/phone/fax, map query, menu/booking/delivery URLs, and the social links. The sister-restaurant grid, footer, reward, and nav stay the same across outlets.
+
+---
+
+## 9. Pages & routing
+
+Flat files at the repo root (no build step, no nested folders). Every page is a sibling `.html`; asset/CSS/JS paths are identical on all pages. All internal links already point at these final filenames — a page that isn't built yet 404s until its file is added (no link edits needed afterward).
+
+| Page | File | Status |
+|---|---|---|
+| Home | `index.html` | ✅ built |
+| Grappa's QRE (outlet template) | `grappas-qre.html` | ✅ built |
+| Cadillac Bar & Grill | `cadillac.html` | ⬜ to build |
+| Happy Valley Bar & Grill | `happy-valley-bar-grill.html` | ⬜ to build |
+| Inn Side Out | `inn-side-out.html` | ⬜ to build |
+| Mostaccioli Brothers (Mo Bros) | `mostaccioli-brothers.html` | ⬜ to build |
+| Mo Bros Pizza | `mo-bros-pizza.html` | ⬜ to build |
+| The Mickey B Pizza Co. | `mickey-b-pizza.html` | ⬜ to build |
+| New LA Café | `new-la-cafe.html` | ⬜ to build |
+| Grappa's @ Gissons | `grappas-gissons.html` | ⬜ to build |
+| Restaurants index | `restaurants.html` | ⬜ to build |
+| What's On (events) | `whats-on.html` | ⬜ to build |
+| Eat & Earn loyalty | `loyalty.html` | ⬜ to build |
+| About | `about.html` | ⬜ to build |
+| Careers | `careers.html` | ⬜ to build |
+| Contact | `contact.html` | ⬜ to build |
+| Franchise | `franchise.html` | ⬜ to build |
+| Media | `media.html` | ⬜ to build |
+
+Still `#` on purpose (not pages): **Subscribe** (newsletter) and the **social icons** — wire these to real URLs when available.
+
+To add an outlet page: copy `grappas-qre.html`, then swap hero photos, intro copy + script logo, address/hours/phone/fax, map query, menu/booking/delivery URLs, and the social links. Nav, footer, sister grid, and reward stay as-is.
