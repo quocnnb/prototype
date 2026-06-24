@@ -7,8 +7,10 @@
 (function(){
   // sticky appears after the intro card
   var sticky=document.getElementById('sticky'), trig=document.getElementById('trigger');
-  function on(){ sticky.classList.toggle('show', trig.getBoundingClientRect().top < 0); }
-  window.addEventListener('scroll', on, {passive:true}); on();
+  if(sticky && trig){
+    var on=function(){ sticky.classList.toggle('show', trig.getBoundingClientRect().top < 0); };
+    window.addEventListener('scroll', on, {passive:true}); on();
+  }
 })();
 (function(){
   // intro + desktop-sticky delivery dropdowns
