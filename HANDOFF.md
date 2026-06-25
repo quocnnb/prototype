@@ -170,7 +170,7 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 | Grappa's @ Gissons | `grappas-gissons.html` | ✅ built |
 | Restaurants index | `restaurants.html` | ✅ built |
 | What's On (events) | `whats-on.html` | ⬜ to build |
-| Eat & Earn loyalty | `loyalty.html` | ⬜ to build |
+| Eat & Earn loyalty | `loyalty.html` | ✅ built |
 | About | `about.html` | ⬜ to build |
 | Careers | `careers.html` | ⬜ to build |
 | Contact | `contact.html` | ⬜ to build |
@@ -196,4 +196,11 @@ Outlet pages reuse the `grappas-qre.html` template; per-outlet content was pulle
 Cross-outlet placeholders: **delivery** buttons use generic `foodpanda.hk` / `keeta.com` (swap for per-outlet URLs); **Menu / Drink List** buttons hotlink the live site's menu files (localize before the old site is retired); **Make Reservation** calls the outlet (`tel:`) except Mostaccioli Brothers, which uses its online booking (`bit.ly/MoBrosHK`). "Open since" hero fact shown only for Grappa's QRE (no per-outlet founding years).
 
 ### Restaurants index (`restaurants.html`)
-Reuses the Home "Our Restaurants & Bars" card grid as a standalone page (no dedicated Figma frame exists for this page, so it follows the established grid component). Adds a page header and a **cuisine filter** (All / Italian / Bar & Grill / Pizza / Mexican-American / Café) — chips toggle `.rcard` visibility via `data-cuisine` (filter logic is a guarded IIFE in `main.js`, keyed on `.rx-filter`). All 9 outlet cards link to their detail pages; the active nav item uses `aria-current="page"`.
+Built to Figma frame `215:507`. Header = breadcrumb (El Grande / Restaurants & Bars) + title "Our Restaurants & Bars" + description. **Two filter groups** separated by a divider: **Location** (All locations / Hong Kong / England) and **Cuisine** (All cuisines / Italian / Bar & Grill / Pizza / Mexican-American / Café). Pill chips, active = red `#e31d1a` white bold; cards carry `data-region` + `data-cuisine` and filter with AND logic (guarded IIFE in `main.js`, keyed on `.rx-filter`). All 9 outlet cards link to their detail pages; active nav item uses `aria-current="page"`. Detail-page breadcrumbs now include a linked "Restaurants & Bars" crumb; outlet gallery overline reads "Come on in".
+
+### Reward / Eat & Earn (`loyalty.html`)
+Full programme page built on the design system (no dedicated Figma frame was provided). Sections: header (breadcrumb + title + intro), **How it works** (3 steps), **Your rewards** (4 cards: welcome Prosecco · HK$480 @ 3,000 pts · HK$1,000 @ 5,900 pts · birthday bottle · note "HK$1 = 1 point, vouchers across all venues"), **How to join** (two paths — Online with a "Register online" button → `member.dtcirclerewards.com/register?ref=ELG`, and At the venue with a scannable QR), **FAQ**, and a red CTA band. All facts come from the research brief.
+
+The shared **reward strip** (home, restaurants index, all 9 outlet pages) now has two buttons: **Join Now** → registration link, and **More details & instructions** → `loyalty.html`.
+
+Open items: the **EnE app** store links are still TBD (page uses the web registration URL + QR for now); `assets/eatearn-qr.png` is a generated QR encoding the registration URL — swap for the client's branded QR (`Main_ELG QR Code`) when available.
