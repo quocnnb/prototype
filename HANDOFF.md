@@ -160,14 +160,14 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 |---|---|---|
 | Home | `index.html` | ✅ built |
 | Grappa's QRE (outlet template) | `grappas-qre.html` | ✅ built |
-| Cadillac Bar & Grill | `cadillac.html` | ⬜ to build |
-| Happy Valley Bar & Grill | `happy-valley-bar-grill.html` | ⬜ to build |
-| Inn Side Out | `inn-side-out.html` | ⬜ to build |
-| Mostaccioli Brothers (Mo Bros) | `mostaccioli-brothers.html` | ⬜ to build |
-| Mo Bros Pizza | `mo-bros-pizza.html` | ⬜ to build |
-| The Mickey B Pizza Co. | `mickey-b-pizza.html` | ⬜ to build |
-| New LA Café | `new-la-cafe.html` | ⬜ to build |
-| Grappa's @ Gissons | `grappas-gissons.html` | ⬜ to build |
+| Cadillac Bar & Grill | `cadillac.html` | ✅ built |
+| Happy Valley Bar & Grill | `happy-valley-bar-grill.html` | ✅ built |
+| Inn Side Out | `inn-side-out.html` | ✅ built |
+| Mostaccioli Brothers (Mo Bros) | `mostaccioli-brothers.html` | ✅ built |
+| Mo Bros Pizza | `mo-bros-pizza.html` | ✅ built |
+| The Mickey B Pizza Co. | `mickey-b-pizza.html` | ✅ built |
+| New LA Café | `new-la-cafe.html` | ✅ built |
+| Grappa's @ Gissons | `grappas-gissons.html` | ✅ built |
 | Restaurants index | `restaurants.html` | ⬜ to build |
 | What's On (events) | `whats-on.html` | ⬜ to build |
 | Eat & Earn loyalty | `loyalty.html` | ⬜ to build |
@@ -180,3 +180,17 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 Still `#` on purpose (not pages): **Subscribe** (newsletter) and the **social icons** — wire these to real URLs when available.
 
 To add an outlet page: copy `grappas-qre.html`, then swap hero photos, intro copy + script logo, address/hours/phone/fax, map query, menu/booking/delivery URLs, and the social links. Nav, footer, sister grid, and reward stay as-is.
+
+### Per-outlet open items (content sourced from the current live site)
+
+Outlet pages reuse the `grappas-qre.html` template; per-outlet content was pulled from the existing elgrande.com.hk site. Hero currently uses each outlet's single existing photo (static); galleries are omitted for now (add later per outlet like Cadillac: `<prefix>-hero-1..N.jpg` + `<prefix>-1..M.jpg`). Cadillac is the fully-built reference (5 hero + 22 gallery — assets supplied separately).
+
+| Outlet | Needs attention |
+|---|---|
+| Inn Side Out | Intro is a **placeholder** — the live page still shows the old 2014 closure notice, which was not reused. Supply current copy. |
+| Mo Bros Pizza | Intro is a **placeholder** (live page had none). Supply 1-2 sentences. |
+| New LA Café | Live page is **empty** — placeholder intro; no address / hours / tel / menu. Info, reservation, menu, and phone sections omitted. Supply full details (currently foodpanda-led). |
+| Grappa's @ Gissons | Live page says "Coming soon" — placeholder intro. Has address + UK tel; no hours/menu; delivery omitted (UK). |
+| Mickey B Pizza | No opening hours on the live site — hours row omitted. Supply hours. |
+
+Cross-outlet placeholders: **delivery** buttons use generic `foodpanda.hk` / `keeta.com` (swap for per-outlet URLs); **Menu / Drink List** buttons hotlink the live site's menu files (localize before the old site is retired); **Make Reservation** calls the outlet (`tel:`) except Mostaccioli Brothers, which uses its online booking (`bit.ly/MoBrosHK`). "Open since" hero fact shown only for Grappa's QRE (no per-outlet founding years).
