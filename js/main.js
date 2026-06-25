@@ -72,19 +72,26 @@
   }
 })();
 (function(){
-  // restaurants index: cuisine filter
-  var bar=document.querySelector('.rx-filter'); if(!bar) return;
-  var chips=[].slice.call(bar.querySelectorAll('.rx-chip'));
+  // restaurants index: location + cuisine filters (AND logic)
+  var filter=document.querySelector('.rx-filter'); if(!filter) return;
   var cards=[].slice.call(document.querySelectorAll('#rxGrid .rcard'));
   var empty=document.getElementById('rxEmpty');
-  bar.addEventListener('click', function(e){
-    var c=e.target.closest('.rx-chip'); if(!c) return;
-    chips.forEach(function(x){ var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on?'true':'false'); });
-    var f=c.getAttribute('data-filter'), shown=0;
-    cards.forEach(function(card){
-      var ok=(f==='all')||card.getAttribute('data-cuisine')===f;
-      card.classList.toggle('hide', !ok); if(ok) shown++;
+  var active={loc:'all',cuisine:'all'};
+  function apply(){
+    var shown=0;
+    cards.forEach(function(c){
+      var okL=active.loc==='all'||c.getAttribute('data-region')===active.loc;
+      var okC=active.cuisine==='all'||c.getAttribute('data-cuisine')===active.cuisine;
+      var ok=okL&&okC; c.classList.toggle('hide',!ok); if(ok) shown++;
     });
-    if(empty) empty.hidden = shown!==0;
+    if(empty) empty.hidden=shown!==0;
+  }
+  filter.addEventListener('click',function(e){
+    var b=e.target.closest('.rx-chip'); if(!b) return;
+    var grp=b.closest('.rx-fgroup'); if(!grp) return;
+    var key=grp.getAttribute('data-group')==='loc'?'loc':'cuisine';
+    [].forEach.call(grp.querySelectorAll('.rx-chip'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+    active[key]=b.getAttribute('data-val');
+    apply();
   });
 })();
