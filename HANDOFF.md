@@ -168,7 +168,7 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 | The Mickey B Pizza Co. | `mickey-b-pizza.html` | ✅ built |
 | New LA Café | `new-la-cafe.html` | ✅ built |
 | Grappa's @ Gissons | `grappas-gissons.html` | ✅ built |
-| Restaurants index | `restaurants.html` | ⬜ to build |
+| Restaurants index | `restaurants.html` | ✅ built |
 | What's On (events) | `whats-on.html` | ⬜ to build |
 | Eat & Earn loyalty | `loyalty.html` | ⬜ to build |
 | About | `about.html` | ⬜ to build |
@@ -194,3 +194,6 @@ Outlet pages reuse the `grappas-qre.html` template; per-outlet content was pulle
 | Mickey B Pizza | No opening hours on the live site — hours row omitted. Supply hours. |
 
 Cross-outlet placeholders: **delivery** buttons use generic `foodpanda.hk` / `keeta.com` (swap for per-outlet URLs); **Menu / Drink List** buttons hotlink the live site's menu files (localize before the old site is retired); **Make Reservation** calls the outlet (`tel:`) except Mostaccioli Brothers, which uses its online booking (`bit.ly/MoBrosHK`). "Open since" hero fact shown only for Grappa's QRE (no per-outlet founding years).
+
+### Restaurants index (`restaurants.html`)
+Reuses the Home "Our Restaurants & Bars" card grid as a standalone page (no dedicated Figma frame exists for this page, so it follows the established grid component). Adds a page header and a **cuisine filter** (All / Italian / Bar & Grill / Pizza / Mexican-American / Café) — chips toggle `.rcard` visibility via `data-cuisine` (filter logic is a guarded IIFE in `main.js`, keyed on `.rx-filter`). All 9 outlet cards link to their detail pages; the active nav item uses `aria-current="page"`.
