@@ -374,3 +374,19 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){
   .hhero-box,.hd-glow,.hd-topplate,.hd-botplate,.hd-fork,.hd-knife{animation:none!important}
 }
+
+/* ===== RESTAURANTS INDEX ===== */
+.rx-top{padding:56px 0 0}
+.rx-top .overline{margin-bottom:8px}
+.rx-h1{font:700 36px/1.2 var(--fr);letter-spacing:-0.36px;color:var(--ink);margin:0 0 10px}
+.rx-sub{font:400 16px/1.5 var(--dm);color:var(--grey);margin:0;max-width:560px}
+.rx-filter{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.rx-chip{appearance:none;font:600 13px var(--dm);color:var(--body);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.rx-chip:hover{border-color:var(--red);color:var(--red)}
+.rx-chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.rx-chip:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.rx-grid-sec{padding-top:28px}
+.rest-grid .rcard.hide{display:none}
+.rx-empty{font:400 16px var(--dm);color:var(--grey);padding:24px 0}
+.nav-links a[aria-current]{color:var(--red)}
+@media(max-width:560px){ .rx-h1{font-size:28px} .rx-top{padding:40px 0 0} .rx-filter{margin-top:18px} }
