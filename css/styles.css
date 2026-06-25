@@ -422,7 +422,7 @@ p{margin:0}
 .lp-faq{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
 .lp-q h3{font:700 18px var(--fr);color:var(--ink);margin:0 0 6px;letter-spacing:-0.18px}
 .lp-q p{font:400 16px/1.5 var(--dm);color:var(--body);margin:0}
-.lp-cta{background:var(--red);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:8px}
+.lp-cta{background:var(--red);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:32px 0 72px 0}
 .lp-cta-txt h2{font:700 30px var(--fr);color:#fff;margin:0 0 6px;letter-spacing:-0.3px}
 .lp-cta-txt p{font:400 16px/1.5 var(--dm);color:rgba(255,255,255,.92);margin:0}
 .lp-cta .btn-red{background:#fff;color:var(--red);border-color:#fff}
