@@ -71,3 +71,20 @@
     setInterval(function(){ show((i+1)%slides.length); },5000);
   }
 })();
+(function(){
+  // restaurants index: cuisine filter
+  var bar=document.querySelector('.rx-filter'); if(!bar) return;
+  var chips=[].slice.call(bar.querySelectorAll('.rx-chip'));
+  var cards=[].slice.call(document.querySelectorAll('#rxGrid .rcard'));
+  var empty=document.getElementById('rxEmpty');
+  bar.addEventListener('click', function(e){
+    var c=e.target.closest('.rx-chip'); if(!c) return;
+    chips.forEach(function(x){ var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on?'true':'false'); });
+    var f=c.getAttribute('data-filter'), shown=0;
+    cards.forEach(function(card){
+      var ok=(f==='all')||card.getAttribute('data-cuisine')===f;
+      card.classList.toggle('hide', !ok); if(ok) shown++;
+    });
+    if(empty) empty.hidden = shown!==0;
+  });
+})();
