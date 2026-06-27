@@ -172,10 +172,10 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 | What's On (events) | `whats-on.html` | ✅ built |
 | Reward Program | `loyalty.html` | ✅ built (trimmed) |
 | About | `about.html` | ✅ built |
-| Careers | `careers.html` | ⬜ to build |
-| Contact | `contact.html` | ⬜ to build |
-| Franchise | `franchise.html` | ⬜ to build |
-| Media | `media.html` | ⬜ to build |
+| Careers | `careers.html` | ✅ built |
+| Contact | `contact.html` | ✅ built |
+| Franchise | `franchise.html` | ✅ built |
+| Media | `media.html` | ✅ built |
 
 Still `#` on purpose (not pages): **Subscribe** (newsletter) and the **social icons** — wire these to real URLs when available.
 
@@ -237,3 +237,14 @@ Implemented on branch `feature/tasks-update` (kept off `main` so GitHub Pages is
 - **Subscribe modal.** Removed the `placeholder` text on the Email and Name fields (labels already describe them) across all 12 pages (scripted); the Birthday `date` field's format placeholder is dimmed to `--sub` via `::-webkit-datetime-edit` (returns to `--ink` on focus).
 - **About rebuilt to Figma `245:958` (desktop) / `245:2134` (mobile).** New hero row: 1990 photo (with caption, `50px 5px 5px 10px` radius) | red logo tile (white logo via `brightness(0) invert(1)`, soft drop-shadow = the "effect") | pink `#FCDCDC` slogan card with the red brand-promise slogan and the home-hero plate/cutlery decor (static, faint). Below: full-width lead paragraph, then a two-column **Philosophy** / **History** block, then a red CTA (`.ab-cta`, radius 10, "Come and find your table"). Project red tokens used in place of Figma's near-identical `#d02422`/`#d61f1c`. Old `.ab-stats`/`.ab-quote`/`.ab-prose` styles replaced by the new `.ab-*` set.
   - **Content flag (needs your call):** the Figma **History** copy lists many long-closed venues (Inn Side Out, Hong Kong Brew House, GCX, Vern's, Hop House, Cochrane's, Slim's, Fatt's Place, Tequila Jack's, Domani, etc.) and "Mo Bro's". Per instruction I used the Figma text verbatim (en-dashes converted to commas/colon per the house rule). This re-introduces names elsewhere marked "removed / never built", so confirm whether the history paragraph should keep the full historical list or be trimmed to current venues.
+
+### Batch update (review round 3 — new pages, favicon, dropdown polish)
+- **Favicon** wired on every page: `<link rel="icon" href="assets/favicon.ico" sizes="any">` inserted after the stylesheet link (scripted, idempotent). Uses the existing `assets/favicon.ico` (the red El Grande cutlery mark).
+- **What's On restaurant dropdown caret** fixed: was `stroke='currentColor'` inside a `background-image` data-URI (currentColor does not resolve there, so it rendered black and sat tight to the edge). Now a fixed grey (`%23717171`) caret, `background-position:right 16px`, `padding-right:42px` for clear spacing.
+- **Four new pages built** from the shared chunks (nav/sprite/footer/modal sourced from `grappas-qre.html`, which carries the fuller icon sprite incl. `ic-mail`):
+  - **`franchise.html`** — uses the About layout as inspiration: gradient header, About-style hero (photo | red logo tile | pink slogan card with decor), lead, two-column "Why El Grande" / "What we look for", `.lp-steps` benefits, red `.ab-cta`. Reuses existing `.ab-*` / `.lp-step` classes (no new CSS).
+  - **`media.html`** — press/coverage page in the What's On family: reuses `.wo-grid` + `.wo-card` + the What's On filter JS (year chips All/2026..2022 + `#woMore` "View older" + `#woEmpty`); cards restyled via `.md-*` (source + date meta, Fraunces title, excerpt, "Read more"). Content is **prototype placeholder** press items.
+  - **`careers.html`** — standard but restaurant-scale careers page: `.lp-steps` perks, then an item/post-based `.job-list` (`.job[data-dept]`) with a search box + department dropdown (new `careers` IIFE) and an empty state; "Apply" / "Send your CV" use `mailto:`. CMS-ready (each role is one `.job` item). Roles are **prototype placeholders**.
+  - **`contact.html`** — `.ct-grid` (details + Google Maps embed by address, same pattern as outlet pages) with address/phone/`ic-mail` email + department mailtos + social, then a prototype contact form (`.ct-form`, new guarded IIFE: validates name/email/message, shows a thank-you, no backend).
+- **New CSS** appended: `.md-*` (media), `.job*` (careers), `.ct-*` (contact). **New JS**: `careers` filter IIFE + `contact` form IIFE (both guarded). Media reuses the What's On filter IIFE.
+- All four pages: nav active state set on the mobile-menu link via `aria-current="page"`; div/section balance verified; copy is placeholder pending the client's real franchise / press / jobs / contact content.

@@ -160,3 +160,39 @@
     wrap.hidden=true; done.hidden=false;
   });
 })();
+(function(){
+  // careers: search + department filter
+  var list=document.querySelector('.job-list'); if(!list) return;
+  var s=document.getElementById('jobSearch'), d=document.getElementById('jobDept'), empty=document.getElementById('jobEmpty');
+  var jobs=[].slice.call(list.querySelectorAll('.job'));
+  function apply(){
+    var q=s?s.value.trim().toLowerCase():'', dep=d?d.value:'all', shown=0;
+    jobs.forEach(function(j){
+      var okD=(dep==='all')||j.getAttribute('data-dept')===dep;
+      var okQ=!q||(j.textContent||'').toLowerCase().indexOf(q)>-1;
+      var ok=okD&&okQ; j.classList.toggle('hide',!ok); if(ok) shown++;
+    });
+    if(empty) empty.hidden=shown!==0;
+  }
+  if(s) s.addEventListener('input',apply);
+  if(d) d.addEventListener('change',apply);
+})();
+(function(){
+  // contact: prototype form validation (no backend; shows a thank-you)
+  var form=document.getElementById('ctForm'); if(!form) return;
+  var name=document.getElementById('ctName'), email=document.getElementById('ctEmail'), msg=document.getElementById('ctMsg');
+  var eN=document.getElementById('ctErrName'), eE=document.getElementById('ctErrEmail'), eM=document.getElementById('ctErrMsg');
+  var done=document.getElementById('ctDone');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    eN.textContent='';eE.textContent='';eM.textContent='';
+    name.classList.remove('bad');email.classList.remove('bad');msg.classList.remove('bad');
+    var ok=true, nm=name.value.trim(), em=email.value.trim(), mg=msg.value.trim();
+    if(!nm){eN.textContent='Please enter your name.';name.classList.add('bad');ok=false;}
+    if(!em){eE.textContent='Please enter your email.';email.classList.add('bad');ok=false;}
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){eE.textContent='Please enter a valid email address.';email.classList.add('bad');ok=false;}
+    if(!mg){eM.textContent='Please enter a message.';msg.classList.add('bad');ok=false;}
+    if(!ok) return;
+    form.reset(); done.hidden=false;
+  });
+})();
