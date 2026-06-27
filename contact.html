@@ -94,11 +94,12 @@
 <section class="rx-top"><div class="wrap">
   <nav class="crumb rx-crumb reveal" aria-label="Breadcrumb"><a class="reg" href="index.html">El Grande</a><span class="xl">/</span><span class="bd">Contact</span></nav>
   <h1 class="rx-h1 reveal">Contact</h1>
-  <p class="rx-sub reveal">Questions, feedback or bookings for a group? We would love to hear from you.</p>
+  <p class="rx-sub reveal">For more information on our outlets please contact us, we&#39;d love to hear from you.</p>
 </div></section>
 
-<!-- ===== DETAILS + MAP ===== -->
+<!-- ===== MAP + DETAILS + FORM ===== -->
 <section class="h-sec"><div class="wrap">
+  <div class="map ct-map reveal"><iframe title="Map to El Grande Concepts head office" src="https://www.google.com/maps?q=5%20O'Brien%20Road%2C%20Wan%20Chai%2C%20Hong%20Kong&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   <div class="ct-grid reveal">
     <div class="ct-info">
       <div class="head-l"><div class="overline">Get in touch</div><h2 class="h2">El Grande Concepts</h2></div>
@@ -107,33 +108,25 @@
         <div class="info-row"><svg class="i20 c-coral" aria-hidden="true"><use href="#ic-phone"></use></svg><span class="tx"><a href="tel:+85228332189">+852 2833 2189</a></span></div>
         <div class="info-row"><svg class="i20 c-coral" aria-hidden="true"><use href="#ic-mail"></use></svg><span class="tx"><a href="mailto:info@elgrande.com.hk">info@elgrande.com.hk</a></span></div>
       </div>
-      <div class="ct-depts">
-        <p><b>Press</b> and media: <a href="mailto:info@elgrande.com.hk?subject=Press%20enquiry">info@elgrande.com.hk</a></p>
-        <p><b>Franchise</b> enquiries: <a href="mailto:info@elgrande.com.hk?subject=Franchise%20enquiry">info@elgrande.com.hk</a></p>
-        <p><b>Careers</b>: <a href="mailto:info@elgrande.com.hk?subject=Open%20application">info@elgrande.com.hk</a></p>
-      </div>
       <div class="ct-social">
         <a href="#" aria-label="Facebook"><svg class="i24 c-red" aria-hidden="true"><use href="#ic-fb"></use></svg></a>
         <a href="#" aria-label="Instagram"><svg class="i24 c-red" aria-hidden="true"><use href="#ic-ig"></use></svg></a>
       </div>
     </div>
-    <div class="map ct-map"><iframe title="Map to El Grande Concepts head office" src="https://www.google.com/maps?q=5%20O'Brien%20Road%2C%20Wan%20Chai%2C%20Hong%20Kong&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-  </div>
-</div></section>
-
-<!-- ===== FORM ===== -->
-<section class="h-sec"><div class="wrap">
-  <div class="head-l reveal"><div class="overline">Send a message</div><h2 class="h2">Drop us a line</h2></div>
-  <form class="ct-form reveal" id="ctForm" novalidate>
-    <div class="ct-row">
-      <label class="ct-field"><span class="ct-lab">Your Name <i>*</i></span><input type="text" id="ctName" autocomplete="name"><span class="ct-err" id="ctErrName" role="alert"></span></label>
-      <label class="ct-field"><span class="ct-lab">Your Email <i>*</i></span><input type="email" id="ctEmail" autocomplete="email"><span class="ct-err" id="ctErrEmail" role="alert"></span></label>
+    <div class="ct-formwrap">
+      <div class="head-l"><div class="overline">Send a message</div><h2 class="h2">Drop us a line</h2></div>
+      <form class="ct-form" id="ctForm" novalidate>
+        <div class="ct-row">
+          <label class="ct-field"><span class="ct-lab">Your Name <i>*</i></span><input type="text" id="ctName" autocomplete="name"><span class="ct-err" id="ctErrName" role="alert"></span></label>
+          <label class="ct-field"><span class="ct-lab">Your Email <i>*</i></span><input type="email" id="ctEmail" autocomplete="email"><span class="ct-err" id="ctErrEmail" role="alert"></span></label>
+        </div>
+        <label class="ct-field"><span class="ct-lab">Subject</span><input type="text" id="ctSubject"></label>
+        <label class="ct-field"><span class="ct-lab">Your Message <i>*</i></span><textarea id="ctMsg" rows="5"></textarea><span class="ct-err" id="ctErrMsg" role="alert"></span></label>
+        <button type="submit" class="btn btn-red ct-submit">Send message</button>
+        <p class="ct-done" id="ctDone" hidden>Thanks! Your message has been noted. This is a prototype, so nothing was actually sent.</p>
+      </form>
     </div>
-    <label class="ct-field"><span class="ct-lab">Subject</span><input type="text" id="ctSubject"></label>
-    <label class="ct-field"><span class="ct-lab">Message <i>*</i></span><textarea id="ctMsg" rows="5"></textarea><span class="ct-err" id="ctErrMsg" role="alert"></span></label>
-    <button type="submit" class="btn btn-red ct-submit">Send message</button>
-    <p class="ct-done" id="ctDone" hidden>Thanks! Your message has been noted. This is a prototype, so nothing was actually sent.</p>
-  </form>
+  </div>
 </div></section>
 
 <footer class="footer"><div class="footer-in">

@@ -161,7 +161,7 @@
   });
 })();
 (function(){
-  // careers: search + department filter
+  // careers: search + department filter, expandable details, view-all
   var list=document.querySelector('.job-list'); if(!list) return;
   var s=document.getElementById('jobSearch'), d=document.getElementById('jobDept'), empty=document.getElementById('jobEmpty');
   var jobs=[].slice.call(list.querySelectorAll('.job'));
@@ -170,12 +170,52 @@
     jobs.forEach(function(j){
       var okD=(dep==='all')||j.getAttribute('data-dept')===dep;
       var okQ=!q||(j.textContent||'').toLowerCase().indexOf(q)>-1;
-      var ok=okD&&okQ; j.classList.toggle('hide',!ok); if(ok) shown++;
+      var ok=okD&&okQ; j.classList.toggle('hide',!ok);
+      if(ok && !j.classList.contains('job-hidden')) shown++;
     });
     if(empty) empty.hidden=shown!==0;
   }
   if(s) s.addEventListener('input',apply);
   if(d) d.addEventListener('change',apply);
+  // expand / collapse a role
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('.job-toggle'); if(!b) return;
+    var det=b.closest('.job').querySelector('.job-detail'); if(!det) return;
+    var opening=det.hasAttribute('hidden');
+    if(opening){ det.removeAttribute('hidden'); } else { det.setAttribute('hidden',''); }
+    b.setAttribute('aria-expanded', opening?'true':'false');
+    b.textContent = opening ? 'Hide details' : 'View details';
+  });
+  // view all roles
+  var more=document.getElementById('jobMore');
+  if(more){ more.addEventListener('click',function(){
+    [].forEach.call(list.querySelectorAll('.job.job-hidden'),function(j){ j.classList.remove('job-hidden'); });
+    var w=more.parentNode; if(w&&w.parentNode) w.parentNode.removeChild(w);
+    apply();
+  }); }
+})();
+(function(){
+  // media: type + year chip filters
+  var grid=document.querySelector('.md-grid'); if(!grid) return;
+  var cards=[].slice.call(grid.querySelectorAll('.wo-card'));
+  var typeF=document.querySelector('.md-types'), yearF=document.querySelector('.md-years'), empty=document.getElementById('mdEmpty');
+  var type='all', year='all';
+  function apply(){
+    var shown=0;
+    cards.forEach(function(c){
+      var okT=(type==='all')||c.getAttribute('data-type')===type;
+      var okY=(year==='all')||c.getAttribute('data-year')===year;
+      var ok=okT&&okY; c.classList.toggle('hide',!ok); if(ok) shown++;
+    });
+    if(empty) empty.hidden=shown!==0;
+  }
+  function bind(f,set){ if(!f) return; f.addEventListener('click',function(e){
+    var b=e.target.closest('.rx-chip'); if(!b) return;
+    set(b.getAttribute('data-val'));
+    [].forEach.call(f.querySelectorAll('.rx-chip'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+    apply();
+  }); }
+  bind(typeF,function(v){type=v;}); bind(yearF,function(v){year=v;});
 })();
 (function(){
   // contact: prototype form validation (no backend; shows a thank-you)
