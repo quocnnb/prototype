@@ -47,7 +47,7 @@
       if(!e.isIntersecting) return;
       var el=e.target;
       if(el.classList.contains('reveal-stagger')){
-        [].forEach.call(el.children,function(c,i){ c.style.transitionDelay=(i*60)+'ms'; });
+        [].forEach.call(el.children,function(c,i){ c.style.transitionDelay=(i*90)+'ms'; });
       }
       el.classList.add('in');
       io.unobserve(el);
@@ -92,6 +92,47 @@
 })();
 
 
+(function(){
+  // what's on: combined filter (year chips + restaurant dropdown + search) + reveal-older
+  var grid=document.querySelector('.wo-grid'); if(!grid) return;
+  var yearF=document.querySelector('.wo-filter');
+  var venueSel=document.getElementById('woVenue');
+  var search=document.getElementById('woSearch');
+  var empty=document.getElementById('woEmpty');
+  var cards=[].slice.call(grid.querySelectorAll('.wo-card[data-year]'));
+  var year='all';
+  function apply(){
+    var v=venueSel?venueSel.value:'all';
+    var q=search?search.value.trim().toLowerCase():'';
+    var shown=0;
+    cards.forEach(function(c){
+      var okY=(year==='all')||c.getAttribute('data-year')===year;
+      var cv=c.getAttribute('data-venue')||'';
+      var okV=(v==='all')||cv===v||cv==='all-venues';
+      var okQ=!q||(c.textContent||'').toLowerCase().indexOf(q)>-1;
+      var hidden=c.classList.contains('wo-hidden');
+      var ok=okY&&okV&&okQ;
+      c.classList.toggle('hide',!ok);
+      if(ok&&!hidden) shown++;
+    });
+    if(empty) empty.hidden=shown!==0;
+  }
+  if(yearF){ yearF.addEventListener('click',function(e){
+    var b=e.target.closest('.rx-chip'); if(!b) return;
+    year=b.getAttribute('data-val');
+    [].forEach.call(yearF.querySelectorAll('.rx-chip'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+    apply();
+  }); }
+  if(venueSel) venueSel.addEventListener('change',apply);
+  if(search) search.addEventListener('input',apply);
+  // reveal older (prototype) events; real pagination comes with the CMS
+  var btn=document.getElementById('woMore');
+  if(btn){ btn.addEventListener('click',function(){
+    [].forEach.call(grid.querySelectorAll('.wo-card.wo-hidden'),function(c){ c.classList.remove('wo-hidden'); });
+    var wrap=btn.parentNode; if(wrap&&wrap.parentNode) wrap.parentNode.removeChild(wrap);
+    apply();
+  }); }
+})();
 (function(){
   // subscribe modal
   var modal=document.getElementById('subModal'); if(!modal) return;

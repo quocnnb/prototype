@@ -41,22 +41,64 @@
 <section class="rx-top"><div class="wrap">
   <nav class="crumb rx-crumb reveal" aria-label="Breadcrumb"><a class="reg" href="index.html">El Grande</a><span class="xl">/</span><span class="bd">What's On</span></nav>
   <h1 class="rx-h1 reveal">What's On</h1>
-  <p class="rx-sub reveal">Seasonal menus, live screenings, celebrations and more, happening across our restaurants and bars.</p>
+  <p class="rx-sub wo-sub reveal">Seasonal menus, live screenings, celebrations and more, happening across our restaurants and bars.</p>
 </div></section>
 
 <!-- ===== EVENTS ===== -->
 <section class="h-sec"><div class="wrap">
-  <div class="wo-grid reveal-stagger">
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000508_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000508_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-1.jpg'" alt="Happy Valley Bar &amp; Grill - St. Patrick's Day Special" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">March 17, 2026</span><span class="wo-title">St. Patrick's Day Special</span><span class="wo-venue">Happy Valley Bar &amp; Grill</span></div></a>
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000504_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000504_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-4.jpg'" alt="Grappa's QRE - Chef's Valentine's Day Specials" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 14, 2026</span><span class="wo-title">Chef's Valentine's Day Specials</span><span class="wo-venue">Grappa's QRE</span></div></a>
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000505_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000505_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-6.jpg'" alt="Mo Bros - Valentine's Day Menu" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 14, 2026</span><span class="wo-title">Valentine's Day Menu</span><span class="wo-venue">Mo Bros</span></div></a>
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000506_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000506_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-9.jpg'" alt="Happy Valley Bar &amp; Grill - Super Bowl, Live on the Screen" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 9, 2026</span><span class="wo-title">Super Bowl, Live on the Screen</span><span class="wo-venue">Happy Valley Bar &amp; Grill</span></div></a>
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000500_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000500_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-14.jpg'" alt="All venues - Oktoberfest" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">October 31, 2025</span><span class="wo-title">Oktoberfest</span><span class="wo-venue">All venues</span></div></a>
-      <a class="wo-card" href="https://www.elgrande.com.hk/events/images/medium/000000503_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000503_0.jpg" onerror="this.onerror=null;this.src='assets/cadillac-3.jpg'" alt="Grappa's QRE - Grappa's 35th Anniversary" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">October 20, 2025</span><span class="wo-title">Grappa's 35th Anniversary</span><span class="wo-venue">Grappa's QRE</span></div></a>
+  <div class="wo-toolbar reveal">
+    <input type="search" class="wo-search" id="woSearch" placeholder="Search events" aria-label="Search events">
+    <select class="wo-select" id="woVenue" aria-label="Filter by restaurant">
+      <option value="all">All restaurants</option>
+      <option value="grappas-qre">Grappa's QRE</option>
+      <option value="cadillac">Cadillac Bar &amp; Grill</option>
+      <option value="mostaccioli">Mo Bros</option>
+      <option value="mo-bros-pizza">Mo Bros Pizza</option>
+      <option value="happy-valley">Happy Valley Bar &amp; Grill</option>
+      <option value="mickey-b">The Mickey B Pizza Co.</option>
+      <option value="gissons">Grappa's @ Gissons</option>
+    </select>
   </div>
-  <p class="wo-archive reveal">Looking for something you saw earlier? Our events run year-round, from Lunar New Year and Oktoberfest to Super Bowl screenings and anniversary celebrations. Sign up to our mailing list so you never miss what&#39;s next.</p>
-  <div class="wo-cta reveal"><a class="btn btn-red" href="#" data-subscribe>Subscribe for updates</a></div>
-</div></section><footer class="footer"><div class="footer-in">
+  <div class="rx-filter wo-filter reveal" role="group" aria-label="Filter events by year" data-group="year">
+    <button type="button" class="rx-chip on" data-val="all" aria-pressed="true">All</button>
+    <button type="button" class="rx-chip" data-val="2026" aria-pressed="false">2026</button>
+    <button type="button" class="rx-chip" data-val="2025" aria-pressed="false">2025</button>
+    <button type="button" class="rx-chip" data-val="2024" aria-pressed="false">2024</button>
+    <button type="button" class="rx-chip" data-val="2023" aria-pressed="false">2023</button>
+    <button type="button" class="rx-chip" data-val="2022" aria-pressed="false">2022</button>
+    <button type="button" class="rx-chip" data-val="2021" aria-pressed="false">2021</button>
+    <button type="button" class="rx-chip" data-val="2020" aria-pressed="false">2020</button>
+    <button type="button" class="rx-chip" data-val="2019" aria-pressed="false">2019</button>
+    <button type="button" class="rx-chip" data-val="2018" aria-pressed="false">2018</button>
+    <button type="button" class="rx-chip" data-val="2017" aria-pressed="false">2017</button>
+    <button type="button" class="rx-chip" data-val="2016" aria-pressed="false">2016</button>
+    <button type="button" class="rx-chip" data-val="2015" aria-pressed="false">2015</button>
+    <button type="button" class="rx-chip" data-val="2014" aria-pressed="false">2014</button>
+    <button type="button" class="rx-chip" data-val="2013" aria-pressed="false">2013</button>
+  </div>
+  <div class="wo-grid reveal-stagger">
+      <a class="wo-card" data-year="2026" data-venue="happy-valley" href="https://www.elgrande.com.hk/events/images/medium/000000508_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000508_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-1.jpg'" alt="Happy Valley Bar &amp; Grill - St. Patrick's Day Special" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">March 17, 2026</span><span class="wo-title">St. Patrick's Day Special</span><span class="wo-venue">Happy Valley Bar &amp; Grill</span></div></a>
+      <a class="wo-card" data-year="2026" data-venue="grappas-qre" href="https://www.elgrande.com.hk/events/images/medium/000000504_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000504_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-4.jpg'" alt="Grappa's QRE - Chef's Valentine's Day Specials" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 14, 2026</span><span class="wo-title">Chef's Valentine's Day Specials</span><span class="wo-venue">Grappa's QRE</span></div></a>
+      <a class="wo-card" data-year="2026" data-venue="mostaccioli" href="https://www.elgrande.com.hk/events/images/medium/000000505_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000505_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-6.jpg'" alt="Mo Bros - Valentine's Day Menu" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 14, 2026</span><span class="wo-title">Valentine's Day Menu</span><span class="wo-venue">Mo Bros</span></div></a>
+      <a class="wo-card" data-year="2026" data-venue="happy-valley" href="https://www.elgrande.com.hk/events/images/medium/000000506_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000506_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-9.jpg'" alt="Happy Valley Bar &amp; Grill - Super Bowl, Live on the Screen" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">February 9, 2026</span><span class="wo-title">Super Bowl, Live on the Screen</span><span class="wo-venue">Happy Valley Bar &amp; Grill</span></div></a>
+      <a class="wo-card" data-year="2025" data-venue="all-venues" href="https://www.elgrande.com.hk/events/images/medium/000000500_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000500_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-14.jpg'" alt="All venues - Oktoberfest" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">October 31, 2025</span><span class="wo-title">Oktoberfest</span><span class="wo-venue">All venues</span></div></a>
+      <a class="wo-card" data-year="2025" data-venue="grappas-qre" href="https://www.elgrande.com.hk/events/images/medium/000000503_0.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="https://www.elgrande.com.hk/events/images/medium/000000503_0.jpg" onerror="this.onerror=null;this.src='assets/cadillac-3.jpg'" alt="Grappa's QRE - Grappa's 35th Anniversary" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">October 20, 2025</span><span class="wo-title">Grappa's 35th Anniversary</span><span class="wo-venue">Grappa's QRE</span></div></a>
+      <!-- Older events below are PROTOTYPE PLACEHOLDERS revealed by "View older"; real archive + pagination arrive with the CMS -->
+      <a class="wo-card wo-hidden" data-year="2025" data-venue="grappas-qre" href="assets/event-1.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="assets/event-1.jpg" alt="Grappa's QRE - Summer Pasta Festival" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">August 8, 2025</span><span class="wo-title">Summer Pasta Festival</span><span class="wo-venue">Grappa's QRE</span></div></a>
+      <a class="wo-card wo-hidden" data-year="2025" data-venue="cadillac" href="assets/event-2.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="assets/event-2.jpg" alt="Cadillac Bar &amp; Grill - Cinco de Mayo Fiesta" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">May 5, 2025</span><span class="wo-title">Cinco de Mayo Fiesta</span><span class="wo-venue">Cadillac Bar &amp; Grill</span></div></a>
+      <a class="wo-card wo-hidden" data-year="2025" data-venue="mostaccioli" href="assets/event-3.jpg" target="_blank" rel="noopener"><div class="wo-imgbox"><img src="assets/event-3.jpg" alt="Mo Bros - Lunar New Year Set Menu" loading="lazy" decoding="async"></div><div class="wo-body"><span class="wo-date">January 29, 2025</span><span class="wo-title">Lunar New Year Set Menu</span><span class="wo-venue">Mo Bros</span></div></a>
+  </div>
+  <p class="wo-empty rx-empty" id="woEmpty" hidden>No events match those filters.</p>
+  <div class="wo-loadwrap reveal"><button type="button" class="btn btn-out" id="woMore">View older</button></div>
+</div></section>
+
+<!-- ===== CTA ===== -->
+<section class="h-sec"><div class="wrap"><div class="lp-cta lp-cta--sm reveal">
+  <div class="lp-cta-txt"><h2>Never miss what's on</h2><p>Subscribe for new menus, events and offers across El Grande.</p></div>
+  <div class="lp-cta-btns"><a class="btn btn-red" href="#" data-subscribe>Subscribe</a></div>
+</div></div></section>
+
+<footer class="footer"><div class="footer-in">
   <div class="foot-cols">
     <div class="foot-c brand">
       <img class="foot-logo" src="assets/el-grande-logo.svg" alt="El Grande Concepts" loading="lazy" decoding="async">
@@ -100,10 +142,10 @@
       <p class="sub-lede">Be first to hear about new menus, events and offers across El Grande.</p>
       <form id="subForm" novalidate>
         <label class="sub-field"><span class="sub-lab">Your Email <i>*</i></span>
-          <input type="email" id="subEmail" name="email" autocomplete="email" placeholder="you@example.com">
+          <input type="email" id="subEmail" name="email" autocomplete="email">
           <span class="sub-err" id="subErrEmail" role="alert"></span></label>
         <label class="sub-field"><span class="sub-lab">Your Name <i>*</i></span>
-          <input type="text" id="subName" name="name" autocomplete="name" placeholder="Your name">
+          <input type="text" id="subName" name="name" autocomplete="name">
           <span class="sub-err" id="subErrName" role="alert"></span></label>
         <label class="sub-field"><span class="sub-lab">Birthday <em>(optional)</em></span>
           <input type="date" id="subBday" name="bday"></label>
