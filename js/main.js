@@ -72,26 +72,50 @@
   }
 })();
 (function(){
-  // restaurants index: location + cuisine filters (AND logic)
+  // restaurants index: cuisine filter + hide empty region groups
   var filter=document.querySelector('.rx-filter'); if(!filter) return;
-  var cards=[].slice.call(document.querySelectorAll('#rxGrid .rcard'));
+  var cards=[].slice.call(document.querySelectorAll('.rcard[data-cuisine]'));
+  var groups=[].slice.call(document.querySelectorAll('.rx-group'));
   var empty=document.getElementById('rxEmpty');
-  var active={loc:'all',cuisine:'all'};
-  function apply(){
-    var shown=0;
-    cards.forEach(function(c){
-      var okL=active.loc==='all'||c.getAttribute('data-region')===active.loc;
-      var okC=active.cuisine==='all'||c.getAttribute('data-cuisine')===active.cuisine;
-      var ok=okL&&okC; c.classList.toggle('hide',!ok); if(ok) shown++;
-    });
-    if(empty) empty.hidden=shown!==0;
-  }
   filter.addEventListener('click',function(e){
     var b=e.target.closest('.rx-chip'); if(!b) return;
-    var grp=b.closest('.rx-fgroup'); if(!grp) return;
-    var key=grp.getAttribute('data-group')==='loc'?'loc':'cuisine';
-    [].forEach.call(grp.querySelectorAll('.rx-chip'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
-    active[key]=b.getAttribute('data-val');
-    apply();
+    var f=b.getAttribute('data-val');
+    [].forEach.call(filter.querySelectorAll('.rx-chip'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+    var shown=0;
+    cards.forEach(function(c){
+      var ok=(f==='all')||c.getAttribute('data-cuisine')===f;
+      c.classList.toggle('hide',!ok); if(ok) shown++;
+    });
+    groups.forEach(function(g){ g.classList.toggle('hide',!g.querySelector('.rcard:not(.hide)')); });
+    if(empty) empty.hidden=shown!==0;
+  });
+})();
+
+
+(function(){
+  // subscribe modal
+  var modal=document.getElementById('subModal'); if(!modal) return;
+  var form=modal.querySelector('#subForm');
+  var emailI=modal.querySelector('#subEmail'), nameI=modal.querySelector('#subName');
+  var errE=modal.querySelector('#subErrEmail'), errN=modal.querySelector('#subErrName');
+  var wrap=modal.querySelector('#subFormWrap'), done=modal.querySelector('#subDone'), doneMsg=modal.querySelector('#subDoneMsg');
+  var registered=[], lastFocus=null;
+  function reset(){ wrap.hidden=false; done.hidden=true; form.reset(); errE.textContent=''; errN.textContent=''; emailI.classList.remove('bad'); nameI.classList.remove('bad'); }
+  function open(e){ if(e) e.preventDefault(); lastFocus=document.activeElement; reset(); modal.classList.add('on'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(function(){emailI.focus();},40); }
+  function close(){ modal.classList.remove('on'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  [].forEach.call(document.querySelectorAll('[data-subscribe]'),function(o){ o.addEventListener('click',open); });
+  modal.addEventListener('click',function(e){ if(e.target.hasAttribute('data-sub-close')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&modal.classList.contains('on')) close(); });
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); errE.textContent=''; errN.textContent=''; emailI.classList.remove('bad'); nameI.classList.remove('bad');
+    var em=emailI.value.trim(), nm=nameI.value.trim(), ok=true;
+    if(!nm){ errN.textContent='Please enter your name.'; nameI.classList.add('bad'); ok=false; }
+    if(!em){ errE.textContent='Please enter your email.'; emailI.classList.add('bad'); ok=false; }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ errE.textContent='Please enter a valid email address.'; emailI.classList.add('bad'); ok=false; }
+    if(!ok) return;
+    if(registered.indexOf(em.toLowerCase())>-1){ errE.textContent='This email is already subscribed.'; emailI.classList.add('bad'); return; }
+    registered.push(em.toLowerCase());
+    doneMsg.textContent='Thanks, '+nm+'! You\'re on the list.';
+    wrap.hidden=true; done.hidden=false;
   });
 })();
