@@ -169,9 +169,9 @@ Flat files at the repo root (no build step, no nested folders). Every page is a 
 | New LA Café | `new-la-cafe.html` | ✅ built |
 | Grappa's @ Gissons | `grappas-gissons.html` | ✅ built |
 | Restaurants index | `restaurants.html` | ✅ built |
-| What's On (events) | `whats-on.html` | ⬜ to build |
-| Eat & Earn loyalty | `loyalty.html` | ✅ built |
-| About | `about.html` | ⬜ to build |
+| What's On (events) | `whats-on.html` | ✅ built |
+| Reward Program | `loyalty.html` | ✅ built (trimmed) |
+| About | `about.html` | ✅ built |
 | Careers | `careers.html` | ⬜ to build |
 | Contact | `contact.html` | ⬜ to build |
 | Franchise | `franchise.html` | ⬜ to build |
@@ -204,3 +204,19 @@ Full programme page built on the design system (no dedicated Figma frame was pro
 The shared **reward strip** (home, restaurants index, all 9 outlet pages) now has two buttons: **Join Now** → registration link, and **More details & instructions** → `loyalty.html`.
 
 Open items: the **EnE app** store links are still TBD (page uses the web registration URL + QR for now); `assets/eatearn-qr.png` is a generated QR encoding the registration URL — swap for the client's branded QR (`Main_ELG QR Code`) when available.
+
+### Batch update (latest)
+- **Outlets reduced to 7** (removed Inn Side Out + New LA Café). Order — HK: Grappa's QRE, Cadillac, Mo Bros (was Mostaccioli), Mo Bros Pizza, Happy Valley B&G, The Mickey B Pizza Co.; England: Grappa's @ Gissons. Applied to home grid, restaurants grid, sister grids (6 each), footer.
+- **Restaurants page**: location filter removed; Hong Kong / England group headings restored; cards now have hover overlay (name + address) like sister/event cards; cuisine filter only (Café chip removed). Filter JS rewritten — hides a region group when empty.
+- **Asset naming synchronized** to `<prefix>-hero-N.jpg` / `<prefix>-N.jpg` / `<prefix>-logo.png` (all photos jpg). See `ASSET-RENAME.md` for the manual rename checklist.
+- **Email row** `info@elgrande.com.hk` added below Tel/Fax on all 7 detail pages, with new `#ic-mail` sprite (from Mailbox.svg).
+- **TikTok + X (Twitter) removed** site-wide (footer + intro). FB + IG kept; links still `#` pending the client's URLs.
+- **Reward Program page**: retitled "El Grande Reward Program"; FAQ + "How to join" removed (join merged into "How it works"); unconfirmed point thresholds dropped — copy now sticks to the reward-section facts (1 pt per HK$1, welcome Prosecco, vouchers up to HK$1,000 across venues, birthday Prosecco); Eat & Earn treated as the membership/app, not the programme; Eat & Earn logo added.
+- **Subscribe → modal** "Subscribe to our mailing list" on every page (data-subscribe triggers). Fields: Your Email* , Your Name* , Birthday (optional). States handled: validation (empty / invalid email), success, and already-subscribed (in-memory simulation for the prototype).
+- **rx-top padding → 120px** (desktop + mobile) so the page header clears the hanging logo card.
+
+### What's On (`whats-on.html`) + About (`about.html`)
+No Figma frame for these; built from the live site content (`elgrande.com.hk`) on the existing design system.
+- **What's On**: header + grid of event cards (`.wo-card`: poster + date + title + venue). Events pulled from the live `/events/` page (St. Patrick's, Valentine's, Super Bowl, Oktoberfest, Grappa's 35th Anniversary). The 2 Inn Side Out events were dropped (venue removed from the new site). Posters hotlink the live `/events/images/medium/…jpg` with a local gallery fallback via `onerror`. Closing CTA opens the subscribe modal. The home Events strip was re-synced to the same real posters.
+- **About**: header + story hero (the 1990 "first customers with GM Guido" archive photo, hotlinked, local fallback) + lead, a stats band (1990 / 35+ / 7 venues / 2 countries), "Our philosophy" + "How it began" prose (the client's own About copy, lightly cleaned and de-duplicated), the brand-promise pull-quote, and a red CTA band to the restaurants page.
+- Open items: real event feed / event detail pages + month archive are future work (the live site keeps a 2013→now monthly archive); swap hotlinked event/About images for local optimised copies before launch.
