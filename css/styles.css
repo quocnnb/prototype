@@ -601,14 +601,15 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 @media(max-width:560px){.cr-grid{grid-template-columns:1fr}.cr-card{height:300px}}
 
 /* ===== CONTACT ===== */
-.ct-map{min-height:300px;border-radius:5px;margin-top:32px}
+.ct-map{min-height:250px;border-radius:5px;margin-bottom:32px}
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.ct-info{display:flex;flex-direction:column;gap:18px}
+.ct-info{display:flex;flex-direction:column;gap:14px}
 .ct-info .head-l{margin-bottom:0}
-.ct-msg{font:400 15px/1.6 var(--dm);color:var(--body);margin:0;max-width:420px}
+.ct-info .info-list{gap:14px}
+.ct-formwrap .head-l{margin-bottom:14px}
 .ct-social{display:flex;gap:16px;align-items:center}
 .ct-social a:hover{opacity:.8}
-.ct-form{display:flex;flex-direction:column;gap:16px}
+.ct-form{display:flex;flex-direction:column;gap:14px}
 .ct-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ct-field{display:flex;flex-direction:column;gap:6px}
 .ct-lab{font:600 13px var(--dm);color:var(--ink)}

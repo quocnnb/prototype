@@ -266,3 +266,8 @@ Content sourced from the live `elgrande.com.hk` pages (franchise / careers / con
 - **Careers**: description max-width removed; role item corner 14 → 5; **"View all roles" → "More open roles"**; **Why join us** is now **4 cards** (`why-join-us-1..4.jpg`, fallbacks for now), 380px tall, 5px corners, centered text both axes, a solid `rgba(52,29,28,0.53)` overlay (no gradient), with a 4th grounded point ("Relaxed and casual").
 - **Contact**: map moved **below** the two clusters (`.ct-map`, 300px, 5px corner, `margin-top`); Get in touch (left) now also lists **hr@elgrande.com.hk**; a note flags that reCAPTCHA arrives with the backend.
 - **Assets to add (Quoc):** `assets/franchise-1.jpg`, `assets/why-join-us-1.jpg … why-join-us-4.jpg`.
+
+### Batch update (review round 6 — contact polish + stray sticky-nav fix)
+- **Removed the stray outlet sticky-nav** that the page generator had copied from `grappas-qre.html` into `franchise/media/careers/contact` (it was hidden but wrong: Grappa's QRE reservation markup in the DOM). The shared TOP now = icon sprite + top nav only.
+- **Contact**: map moved back to the **top** (above both clusters), height reduced to **250px**; the reCAPTCHA note under the button removed; left "Get in touch" and right "Send a message" now share a **14px** vertical rhythm (info rows, form fields, heading-to-content), and the form's vertical spacing was trimmed slightly to shorten the card.
+- **Image fallbacks dropped** for the to-be-added local assets (`franchise-1.jpg`, `why-join-us-1..4.jpg`) per request — code points straight at the final names (they will resolve once Quoc adds the files; broken thumbnails until then are expected). Media posters keep their external hotlink + local fallback.
