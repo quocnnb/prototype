@@ -38,6 +38,12 @@
   </div>
 </header>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="ab-logo-fx" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.999" numOctaves="3" seed="5884" result="noise"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs></svg>
+
 <!-- ===== HEADER ===== -->
 <section class="rx-top"><div class="wrap">
   <nav class="crumb rx-crumb reveal" aria-label="Breadcrumb"><a class="reg" href="index.html">El Grande</a><span class="xl">/</span><span class="bd">About</span></nav>
@@ -51,7 +57,7 @@
       <img src="https://www.elgrande.com.hk/info/images/s_thumbnail/1_0.jpg" onerror="this.onerror=null;this.src='assets/grappas-qre-hero-2.jpg'" alt="El Grande's first two customers with original general manager Guido, October 1990" loading="lazy" decoding="async">
       <figcaption class="ab-photo-cap">Our first two customers with original general manager Guido, October 1990.</figcaption>
     </figure>
-    <div class="ab-logo"><img src="assets/el-grande-logo.svg" alt="El Grande Concepts" loading="lazy" decoding="async"></div>
+    <div class="ab-logo"><span class="ab-logo-fx" aria-hidden="true"></span><img src="assets/el-grande-logo.svg" alt="El Grande Concepts" loading="lazy" decoding="async"></div>
     <div class="ab-slogan">
       <div class="ab-slogan-box">
         <img class="decor ab-topplate" src="assets/top-plate.svg" alt="" aria-hidden="true">

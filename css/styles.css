@@ -369,7 +369,8 @@ p{margin:0}
   .scard{height:120px}
   .ev-title,.ev-date{font-size:14px}
 }
-.head-l .h2{font-size:36px;letter-spacing:-0.36px;line-height:1.4}
+.head-l .h2{font-size:30px;letter-spacing:-0.3px;line-height:1.4}
+body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 @media(max-width:560px){ .head-l .h2{font-size:28px} }
 @media (prefers-reduced-motion:reduce){
   .hhero-box,.hd-glow,.hd-topplate,.hd-botplate,.hd-fork,.hd-knife{animation:none!important}
@@ -377,15 +378,16 @@ p{margin:0}
 
 /* ===== RESTAURANTS INDEX ===== */
 /* gradient header band for pages without a hero image (restaurants / what's on / reward / about) */
-.rx-top{padding:120px 0 0;background:linear-gradient(180deg,#FCC9C7 0%,#FAF2F0 75%)}
+.rx-top{padding:120px 0 32px;background:linear-gradient(180deg,#FCC9C7 0%,#FAF2F0 75%)}
+.rx-top + section.h-sec,.rx-top + section{padding-top:0}
 .rx-crumb{margin-bottom:8px}
 .rx-crumb .reg,.rx-crumb .xl,.rx-crumb .bd{color:#756666}
 .rx-crumb a.reg{text-decoration:none}
 .rx-crumb a.reg:hover{color:var(--red)}
 .rx-h1{font:700 36px/1.4 var(--fr);letter-spacing:-0.36px;color:var(--ink);margin:0 0 8px}
 .rx-sub{font:400 16px/1.5 var(--dm);color:#6e6e6e;letter-spacing:-0.16px;margin:0;max-width:620px}
-.rx-filter{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:24px 0 0}
-.rx-fgroup{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rx-filter{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:24px 0 0}
+.rx-fgroup{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .rx-fdiv{width:1px;height:29px;background:#ddd;flex:none}
 .rx-chip{appearance:none;font:600 14px var(--dm);letter-spacing:-0.14px;color:#34312f;background:#fff;border:1px solid #ddd;border-radius:999px;padding:6px 12px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
 .rx-chip:hover{border-color:var(--red);color:var(--red)}
@@ -395,7 +397,7 @@ p{margin:0}
 .rest-grid .rcard.hide{display:none}
 .rx-empty{font:400 16px var(--dm);color:var(--grey);padding:24px 0}
 .nav-links a[aria-current]{color:var(--red)}
-@media(max-width:560px){ .rx-h1{font-size:28px} .rx-top{padding:120px 0 0} .rx-filter{gap:12px;margin-top:18px} .rx-fdiv{display:none} }
+@media(max-width:560px){ .rx-h1{font-size:28px} .rx-top{padding:120px 0 32px} .rx-filter{gap:8px;margin-top:18px} }
 
 /* ===== LOYALTY / EAT & EARN ===== */
 .reward-btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
@@ -423,7 +425,7 @@ p{margin:0}
 .lp-q h3{font:700 18px var(--fr);color:var(--ink);margin:0 0 6px;letter-spacing:-0.18px}
 .lp-q p{font:400 16px/1.5 var(--dm);color:var(--body);margin:0}
 .lp-cta{background:var(--red);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:8px}
-.lp-cta-txt h2{font:700 30px var(--fr);color:#fff;margin:0 0 6px;letter-spacing:-0.3px}
+.lp-cta-txt h2{font:700 30px var(--fr);color:#fff;margin:0 0 8px;letter-spacing:-0.3px}
 .lp-cta-txt p{font:400 16px/1.5 var(--dm);color:rgba(255,255,255,.92);margin:0}
 .lp-cta .btn-red{background:#fff;color:var(--red);border-color:#fff}
 .lp-cta .btn-red:hover{background:var(--bg)}
@@ -523,8 +525,9 @@ p{margin:0}
 .ab-photo{position:relative;margin:0;border-radius:50px 5px 5px 10px;overflow:hidden;min-height:320px}
 .ab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ab-photo-cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:12px 16px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.8) 100%);font:italic 400 14px/1.5 var(--dm);color:rgba(255,255,255,.79);letter-spacing:-0.14px}
-.ab-logo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--red);border-radius:5px;box-shadow:0 16px 34px rgba(176,20,15,.30)}
-.ab-logo img{width:100px;height:auto;display:block;filter:brightness(0) invert(1)}
+.ab-logo{position:relative;flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:20px;border-radius:5px}
+.ab-logo-fx{position:absolute;inset:0;background:var(--red);border-radius:5px;z-index:1;filter:url(#ab-logo-fx)}
+.ab-logo img{position:relative;z-index:2;width:100px;height:auto;display:block;filter:brightness(0) invert(1)}
 .ab-slogan{display:flex;align-items:center;justify-content:center;background:#FCDCDC;border-radius:5px 5px 50px 5px;padding:48px 32px}
 .ab-slogan-box{position:relative;display:flex;align-items:center;justify-content:center;max-width:470px;width:100%;padding:8px 0}
 .ab-slogan-txt{position:relative;z-index:2;width:100%;font-family:var(--fr);font-weight:700;font-size:36px;color:var(--red);text-align:center;letter-spacing:-0.72px;line-height:1.25}
@@ -541,8 +544,8 @@ p{margin:0}
 .ab-col p{font:400 17px/1.5 var(--dm);color:var(--body);letter-spacing:-0.17px;margin:0 0 8px}
 .ab-col p:last-child{margin-bottom:0}
 .ab-cta{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:var(--red);border-radius:10px;padding:32px}
-.ab-cta-txt h2{font:700 36px var(--fr);color:#fff;letter-spacing:-0.72px;line-height:1.25;margin:0 0 4px}
-.ab-cta-txt p{font:400 17px/1.5 var(--dm);color:#fff;letter-spacing:-0.17px;margin:0}
+.ab-cta-txt h2{font:700 30px var(--fr);color:#fff;letter-spacing:-0.3px;line-height:1.25;margin:0 0 8px}
+.ab-cta-txt p{font:400 16px/1.5 var(--dm);color:#fff;letter-spacing:-0.16px;margin:0}
 .ab-cta .btn-red{background:#fff;color:var(--red);border-color:#fff}
 .ab-cta .btn-red:hover{background:var(--bg)}
 .ab-cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
@@ -562,15 +565,13 @@ p{margin:0}
 }
 
 /* ===== MEDIA / PRESS (poster cards like What's On + type/year filters) ===== */
-.md-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.md-types{margin:0 0 12px}
-.md-years{margin:0 0 0}
+.md-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
 @media(max-width:900px){.md-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.md-grid{grid-template-columns:1fr}}
 
 /* ===== CAREERS ===== */
 .job-list{display:flex;flex-direction:column;gap:12px}
-.job{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 24px;transition:box-shadow .2s ease}
+.job{background:#fff;border:1px solid var(--line);border-radius:5px;padding:18px 24px;transition:box-shadow .2s ease}
 .job:hover{box-shadow:0 12px 28px rgba(26,20,16,.10)}
 .job.hide,.job.job-hidden{display:none}
 .job-head{display:flex;gap:24px;align-items:center;justify-content:space-between}
@@ -589,17 +590,18 @@ p{margin:0}
 @media(max-width:560px){.job-head{flex-direction:column;align-items:flex-start;gap:12px}.job-toggle{width:100%;justify-content:center}}
 
 /* careers: why-join image cards (landscape, content bottom + dark gradient) */
-.cr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.cr-card{position:relative;height:260px;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end}
+.cr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.cr-card{position:relative;height:380px;border-radius:5px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
 .cr-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
-.cr-card::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.8) 100%)}
-.cr-body{position:relative;z-index:3;padding:20px}
-.cr-body h3{font:700 20px var(--fr);color:#fff;margin:0 0 4px;letter-spacing:-0.2px}
-.cr-body p{font:400 14px/1.45 var(--dm);color:rgba(255,255,255,.92);margin:0}
-@media(max-width:900px){.cr-grid{grid-template-columns:1fr}.cr-card{height:200px}}
+.cr-card::after{content:"";position:absolute;inset:0;z-index:2;background:rgba(52,29,28,0.53)}
+.cr-body{position:relative;z-index:3;padding:24px}
+.cr-body h3{font:700 20px var(--fr);color:#fff;margin:0 0 6px;letter-spacing:-0.2px}
+.cr-body p{font:400 14px/1.5 var(--dm);color:rgba(255,255,255,.92);margin:0}
+@media(max-width:900px){.cr-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cr-grid{grid-template-columns:1fr}.cr-card{height:300px}}
 
 /* ===== CONTACT ===== */
-.ct-map{min-height:240px;border-radius:14px;margin-bottom:32px}
+.ct-map{min-height:300px;border-radius:5px;margin-top:32px}
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .ct-info{display:flex;flex-direction:column;gap:18px}
 .ct-info .head-l{margin-bottom:0}
@@ -619,3 +621,12 @@ p{margin:0}
 .ct-done{font:600 15px var(--dm);color:var(--pill-red-tx);background:var(--pill-red-bg);padding:12px 16px;border-radius:8px}
 @media(max-width:900px){.ct-grid{grid-template-columns:1fr}.ct-map{min-height:280px}}
 @media(max-width:560px){.ct-row{grid-template-columns:1fr}}
+
+/* ===== FRANCHISE (Figma 259:763) ===== */
+.fr-photo{position:relative;margin:0;border-radius:15px 5px 30px 5px;overflow:hidden;aspect-ratio:12/5}
+.fr-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr-row{display:grid;grid-template-columns:344px 1fr;gap:32px;align-items:center}
+.fr-slogan .ab-slogan-txt{font-size:28px;letter-spacing:-0.4px}
+@media(max-width:900px){.fr-row{grid-template-columns:1fr;gap:24px}.fr-photo{aspect-ratio:16/9}}
+
+.ct-note{font:400 13px/1.5 var(--dm);color:var(--grey);margin:4px 0 0}
