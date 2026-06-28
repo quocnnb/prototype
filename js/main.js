@@ -61,11 +61,14 @@
   var hero=document.getElementById('hhero'); if(!hero) return;
   var slides=[].slice.call(hero.querySelectorAll('.hhero-bg img'));
   var pill=document.getElementById('hheroPill');
+  var link=document.getElementById('hheroLink');
   if(slides.length<2) return;
   var i=0;
   function show(n){
     slides[i].classList.remove('on'); i=n; slides[i].classList.add('on');
-    if(pill){ var info=slides[i].getAttribute('data-info'); if(info) pill.textContent=info; }
+    var s=slides[i];
+    if(pill){ var info=s.getAttribute('data-info'); if(info) pill.textContent=info; }
+    if(link){ var href=s.getAttribute('data-href'); if(href) link.setAttribute('href',href); }
   }
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     setInterval(function(){ show((i+1)%slides.length); },5000);

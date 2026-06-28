@@ -300,8 +300,11 @@ p{margin:0}
 @keyframes floatA{0%,100%{translate:0 -3px}50%{translate:0 4px}}
 @keyframes floatB{0%,100%{translate:0 3px}50%{translate:0 -5px}}
 @keyframes heroGlow{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(.92)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}}
-.hhero-pill{position:relative;z-index:2;background:var(--hero-pill);display:flex;align-items:center;justify-content:center;max-width:1200px;padding:5px 15px;border-radius:999px}
-.hhero-pill p{font-size:12px;color:#bfa8a8;text-align:center;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90vw}
+.hhero-pill{position:relative;z-index:2;background:var(--hero-pill);display:flex;gap:12px;align-items:center;justify-content:center;max-width:1200px;padding:5px 15px;border-radius:999px}
+.hhero-addr{font-size:12px;color:#bfa8a8;text-align:center;letter-spacing:-0.24px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:min(900px,72vw)}
+.hhero-vline{width:1px;height:12px;background:rgba(255,255,255,.35);flex:0 0 auto}
+.hhero-link{font-size:12px;font-weight:600;color:#f1f0f0;letter-spacing:-0.24px;line-height:1.4;white-space:nowrap;flex:0 0 auto}
+.hhero-link:hover{color:#fff;text-decoration:underline}
 
 /* ---- Section heads (left-aligned) ---- */
 .h-sec{padding:64px 0}
@@ -352,7 +355,7 @@ p{margin:0}
   .hhero{height:calc(100svh - 48px);border-radius:0 0 40px 20px}
   .hhero-box .slogan{font-size:30px;letter-spacing:-0.6px}
   .hhero-pill{max-width:100%;padding:6px 18px}
-  .hhero-pill p{white-space:normal}
+  .hhero-addr{white-space:normal;max-width:none}
   .h-sec{padding:48px 0}
   .head-l{margin-bottom:24px}
   .rest-grid{grid-template-columns:repeat(2,1fr)}
