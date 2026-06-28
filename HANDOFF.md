@@ -275,3 +275,6 @@ Content sourced from the live `elgrande.com.hk` pages (franchise / careers / con
 ### Batch update (review round 7 — home hero pill button + careers card copy)
 - **Home hero pill** (Figma `187:456`): now address + a vertical divider + a **"View restaurant"** link (`.hhero-addr` muted `#bfa8a8`, `.hhero-vline`, `.hhero-link` semibold `#f1f0f0`). Each slide carries `data-href`; the slideshow JS updates the address text *and* the link target together so "View restaurant" always points at the venue on screen.
 - **Careers "Why join us"** copy rewritten to be punchier (less literal): "Pull up a chair", "Room to grow", "Never a dull service", "Looked after". Prototype recruitment copy, confirm before launch.
+
+### Batch update (review round 8 — careers location filter)
+- **Careers Open roles** now shows the **venue per role** and a **location filter** (`#jobVenue`) alongside department + search. Roles carry `data-venue`; group-level roles (e.g. Head Chef) use **El Grande Concepts**, others are assigned to a specific outlet (example data). Dropdown lists El Grande Concepts + the 7 outlets. The careers IIFE now AND-combines search + location + department.

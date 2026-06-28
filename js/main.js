@@ -166,20 +166,22 @@
 (function(){
   // careers: search + department filter, expandable details, view-all
   var list=document.querySelector('.job-list'); if(!list) return;
-  var s=document.getElementById('jobSearch'), d=document.getElementById('jobDept'), empty=document.getElementById('jobEmpty');
+  var s=document.getElementById('jobSearch'), d=document.getElementById('jobDept'), v=document.getElementById('jobVenue'), empty=document.getElementById('jobEmpty');
   var jobs=[].slice.call(list.querySelectorAll('.job'));
   function apply(){
-    var q=s?s.value.trim().toLowerCase():'', dep=d?d.value:'all', shown=0;
+    var q=s?s.value.trim().toLowerCase():'', dep=d?d.value:'all', ven=v?v.value:'all', shown=0;
     jobs.forEach(function(j){
       var okD=(dep==='all')||j.getAttribute('data-dept')===dep;
+      var okV=(ven==='all')||j.getAttribute('data-venue')===ven;
       var okQ=!q||(j.textContent||'').toLowerCase().indexOf(q)>-1;
-      var ok=okD&&okQ; j.classList.toggle('hide',!ok);
+      var ok=okD&&okV&&okQ; j.classList.toggle('hide',!ok);
       if(ok && !j.classList.contains('job-hidden')) shown++;
     });
     if(empty) empty.hidden=shown!==0;
   }
   if(s) s.addEventListener('input',apply);
   if(d) d.addEventListener('change',apply);
+  if(v) v.addEventListener('change',apply);
   // expand / collapse a role
   list.addEventListener('click',function(e){
     var b=e.target.closest('.job-toggle'); if(!b) return;
