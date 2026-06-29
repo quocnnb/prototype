@@ -2,7 +2,7 @@
   // page loader: show once per session, animate out after load (+ a short minimum)
   var loader=document.getElementById('egLoader');
   if(!loader || loader.classList.contains('eg-loader--skip')) return;
-  var MIN=1700, start=Date.now();
+  var MIN=2800, start=Date.now();
   function finish(){
     setTimeout(function(){
       loader.classList.add('eg-done');
