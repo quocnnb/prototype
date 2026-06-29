@@ -634,3 +634,27 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 @media(max-width:900px){.fr-row{grid-template-columns:1fr;gap:24px}.fr-photo{aspect-ratio:16/9}}
 
 .ct-note{font:400 13px/1.5 var(--dm);color:var(--grey);margin:4px 0 0}
+
+/* ===== PAGE LOADER (first visit per session; Figma 14:838) ===== */
+.eg-loader{position:fixed;inset:0;z-index:1000;background:var(--bg);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .6s ease}
+.eg-loader--skip{display:none}
+.eg-loader.eg-done{opacity:0;pointer-events:none}
+.eg-loader-mark{display:flex;flex-direction:column;align-items:center;gap:18px}
+.egl-logo{width:128px;height:auto;opacity:0;transform:translateY(10px) scale(.96);animation:eglIn .7s cubic-bezier(.16,1,.3,1) .1s forwards}
+.egl-lines{display:flex;flex-direction:column;align-items:center;gap:8px}
+.egl-lines span{font-family:var(--fr);font-weight:600;font-size:16px;color:#3e3636;letter-spacing:-0.32px;line-height:1.2;opacity:0;transform:translateY(8px);animation:eglIn .6s cubic-bezier(.16,1,.3,1) forwards}
+.egl-lines span:nth-child(1){animation-delay:.5s}
+.egl-lines span:nth-child(2){animation-delay:.66s}
+.egl-lines span:nth-child(3){animation-delay:.82s}
+.egl-spinner{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);display:flex;gap:4px}
+.egl-spinner span{width:8px;height:8px;background:#f0e7e7;animation:eglBlink 1.2s ease-in-out infinite}
+.egl-spinner span:nth-child(2){animation-delay:.18s}
+.egl-spinner span:nth-child(3){animation-delay:.36s}
+@keyframes eglIn{to{opacity:1;transform:none}}
+@keyframes eglBlink{0%,55%,100%{background:#f0e7e7}22%{background:var(--red)}}
+body.eg-loading{overflow:hidden}
+@media (prefers-reduced-motion:reduce){
+  .egl-logo,.egl-lines span{animation:none;opacity:1;transform:none}
+  .egl-spinner span{animation:none}
+  .egl-spinner span:nth-child(2){background:var(--red)}
+}

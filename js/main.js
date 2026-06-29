@@ -1,4 +1,20 @@
 (function(){
+  // page loader: show once per session, animate out after load (+ a short minimum)
+  var loader=document.getElementById('egLoader');
+  if(!loader || loader.classList.contains('eg-loader--skip')) return;
+  var MIN=1700, start=Date.now();
+  function finish(){
+    setTimeout(function(){
+      loader.classList.add('eg-done');
+      document.body.classList.remove('eg-loading');
+      try{ sessionStorage.setItem('egLoaded','1'); }catch(e){}
+      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); },700);
+    }, Math.max(0, MIN-(Date.now()-start)));
+  }
+  if(document.readyState==='complete') finish();
+  else window.addEventListener('load',finish);
+})();
+(function(){
   var s=[].slice.call(document.querySelectorAll('#hero .slide')).slice(0,5);
   if(s.length>1 && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     var i=0; setInterval(function(){ s[i].classList.remove('on'); i=(i+1)%s.length; s[i].classList.add('on'); },5000);
