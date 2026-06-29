@@ -287,3 +287,6 @@ Content sourced from the live `elgrande.com.hk` pages (franchise / careers / con
 ### Batch update (review round 10 — loader aligned to Figma 14:834)
 - Loader text/style corrected to the Figma component `14:834` (state 4): three lines **"Great food, great drinks" / "and exceptional service" / "in a relaxed and casual environment."** in **Fraunces Light (300)**, colour **#940E0C**, 16px, tracking -0.32, line-height 1.5. (Added `300` to the Fraunces font import on `index.html`.) Logo (~132px) animates in **after** the text, matching the state sequence (lines build first, then the mark).
 - Timing: **minimum on-screen time raised to 2.8s** so the intro animation always plays in full and rests briefly for context before fading out (regardless of how fast the page actually loads).
+
+### Batch update (review round 11 — loader motion polish)
+- Softened the loader motion for a gentler, more elegant feel: lines rise+fade over .9s with an easeOutQuint curve (staggered .3/.65/1.0s); the **logo now fades in with a soft blur (8px to 0) + slight scale** over 1.25s (delay 1.45s) so it resolves smoothly instead of popping; spinner is a gentle pulse (scale + colour, 1.5s); the whole overlay fades out over .9s with a subtle scale(1.03). Minimum on-screen time raised to 3.6s to let it all breathe.

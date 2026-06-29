@@ -2,13 +2,13 @@
   // page loader: show once per session, animate out after load (+ a short minimum)
   var loader=document.getElementById('egLoader');
   if(!loader || loader.classList.contains('eg-loader--skip')) return;
-  var MIN=2800, start=Date.now();
+  var MIN=3600, start=Date.now();
   function finish(){
     setTimeout(function(){
       loader.classList.add('eg-done');
       document.body.classList.remove('eg-loading');
       try{ sessionStorage.setItem('egLoaded','1'); }catch(e){}
-      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); },700);
+      setTimeout(function(){ if(loader.parentNode) loader.parentNode.removeChild(loader); },950);
     }, Math.max(0, MIN-(Date.now()-start)));
   }
   if(document.readyState==='complete') finish();
