@@ -198,14 +198,16 @@
   if(s) s.addEventListener('input',apply);
   if(d) d.addEventListener('change',apply);
   if(v) v.addEventListener('change',apply);
-  // expand / collapse a role
+  // expand / collapse a role (click anywhere on the row header)
   list.addEventListener('click',function(e){
-    var b=e.target.closest('.job-toggle'); if(!b) return;
-    var det=b.closest('.job').querySelector('.job-detail'); if(!det) return;
+    if(e.target.closest('a')) return;
+    var head=e.target.closest('.job-head'); if(!head) return;
+    var job=head.parentNode;
+    var det=job.querySelector('.job-detail'); if(!det) return;
     var opening=det.hasAttribute('hidden');
-    if(opening){ det.removeAttribute('hidden'); } else { det.setAttribute('hidden',''); }
-    b.setAttribute('aria-expanded', opening?'true':'false');
-    b.textContent = opening ? 'Hide details' : 'View details';
+    if(opening){ det.removeAttribute('hidden'); job.classList.add('open'); }
+    else { det.setAttribute('hidden',''); job.classList.remove('open'); }
+    var b=head.querySelector('.job-toggle'); if(b) b.setAttribute('aria-expanded', opening?'true':'false');
   });
   // view all roles
   var more=document.getElementById('jobMore');

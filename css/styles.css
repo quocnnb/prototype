@@ -577,12 +577,15 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 .job{background:#fff;border:1px solid var(--line);border-radius:5px;padding:18px 24px;transition:box-shadow .2s ease}
 .job:hover{box-shadow:0 12px 28px rgba(26,20,16,.10)}
 .job.hide,.job.job-hidden{display:none}
-.job-head{display:flex;gap:24px;align-items:center;justify-content:space-between}
+.job-head{display:flex;gap:24px;align-items:center;justify-content:space-between;cursor:pointer}
 .job-main{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:6px}
 .job-title{font:700 19px var(--fr);color:var(--ink);letter-spacing:-0.19px;line-height:1.3;margin:0}
 .job-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:400 14px var(--dm);color:var(--grey)}
 .job-dot{color:var(--line)}
-.job-toggle{flex:0 0 auto}
+.job-toggle{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:4px 6px;cursor:pointer;font:600 14px var(--dm);color:var(--grey);letter-spacing:-0.14px}
+.job-toggle:hover{color:var(--red)}
+.job-toggle .caret{transition:transform .2s}
+.job.open .job-toggle .caret{transform:rotate(180deg)}
 .job-detail{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
 .job-detail[hidden]{display:none}
 .job-lead{font:400 15px/1.6 var(--dm);color:var(--body);margin:0}
