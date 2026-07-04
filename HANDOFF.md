@@ -304,3 +304,9 @@ Content sourced from the live `elgrande.com.hk` pages (franchise / careers / con
 - **Grappa's @ Gissons phone corrected to +44 (0) 1392 833077** (`tel:+441392833077`) in the action row and the info Tel row (was 757940).
 - **Intro copy extended** for **Mo Bros Pizza** and **Grappa's @ Gissons** so the short-info layout no longer looks bare (grounded, non-fabricated brand copy; fixed a stray apostrophe on Gissons).
 - **External images localised to `assets/`:** About hero -> `assets/about.jpg` (onerror dropped). What's On posters and Media clippings repointed off `elgrande.com.hk` to local names (their existing local `onerror` fallbacks stay, so nothing looks broken until the files are added). **Add these to `assets/` (download from the live URLs):** `event-508.jpg` `event-504.jpg` `event-505.jpg` `event-506.jpg` `event-500.jpg` `event-503.jpg` (What's On, from `/events/images/medium/<id>_0.jpg`); `news-4.jpg` `news-6.jpg` `news-7.jpg` `news-8.jpg` `news-9.jpg` (Media, from `/news/images/m_thumbnail/<id>_0.jpg`).
+
+### Batch update (review round 14 — phone on all outlets, event/news images finalised)
+- **Action-row phone now shows on ALL 7 outlets** that have a number (added it back to Grappa's QRE and Mo Bros too, alongside their reservation CTA) — same grey `ic-phone2` UI in intro + both sticky bars.
+- **Events use `assets/event-1.jpg … event-9.jpg`** (no `onerror` fallback, so a missing file is visible): What's On maps its 9 cards (6 visible + 3 revealed by "View older") to event-1..9 in order; the **Home events strip uses the first five** (event-1..5).
+- **Media uses `assets/news-1.jpg … news-4.jpg` + `assets/press-1.jpg`** (no fallback): the four news clippings and the press release respectively.
+- No `<img>` on any page references an external URL anymore.
