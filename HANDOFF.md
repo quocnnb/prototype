@@ -185,7 +185,7 @@ Order in all listings: Hong Kong 1→7, then England (Gissons).
 ## 8. Integrations & data
 
 - **Reservation:** as per §7 (Bistrochat URL / `tel:`).
-- **Delivery (foodpanda + Keeta):** wired per outlet for the 7 Hong Kong outlets (intro dropdown, both sticky bars, and the delivery section). Gissons (UK) has no delivery partners — its delivery buttons are present but disabled. Note: Cadillac and The Mickey B Pizza Co. (Causeway Bay) intentionally share one Keeta link (combined menus).
+- **Delivery (foodpanda + Keeta):** wired per outlet for the 7 Hong Kong outlets (intro dropdown, both sticky bars, and the delivery section). Gissons (UK) has no delivery partners, so it has no delivery section. Note: Cadillac and The Mickey B Pizza Co. (Causeway Bay) intentionally share one Keeta link (combined menus).
 - **Menus / Drink List / Festival:** buttons currently hotlink the live site's attachment files (`elgrande.com.hk/restaurants/attachments/…`). Replace with real/hosted menus before launch.
 - **Social:** El Grande group social (footer on every page + Contact) is **Instagram only** (`instagram.com/elgrande_hk`). Per-outlet intro socials: Grappa's QRE, Cadillac, Mostaccioli, Happy Valley have Facebook + Instagram; Mickey B (Causeway Bay) has Facebook only; Mo Bros Pizza, Mickey B (Happy Valley) and Gissons have none.
 - **Loyalty / Eat & Earn:** registration URL `https://member.dtcirclerewards.com/register?ref=ELG`; QR asset `assets/eatearn-qr.png`.
@@ -212,7 +212,6 @@ Order in all listings: Hong Kong 1→7, then England (Gissons).
 - **Localization:** add Traditional Chinese (繁體中文) and a language toggle.
 - **Social links:** fill in remaining per-outlet Facebook/Instagram URLs as they are confirmed.
 - **Reservation:** extend online/phone booking to more outlets as channels are confirmed.
-- **Gissons delivery:** its delivery section shows disabled buttons — remove the section or wire UK partners.
 - **Legal pages:** privacy / terms are not built.
 - **Accessibility:** production pass on focus-visible states, colour contrast on the cream background, keyboard operation of menus/dropdowns/accordion, and image `alt` text.
 
