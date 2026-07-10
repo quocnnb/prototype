@@ -30,8 +30,7 @@ python -m http.server 8099   # then visit http://localhost:8099
   restaurants.html                 Restaurants & Bars index (+ cuisine filter)
   grappas-qre.html                 ┐
   cadillac.html                    │
-  mickey-b-causeway.html           │
-  mostaccioli-brothers.html        │  8 outlet detail pages
+  mostaccioli-brothers.html        │  7 outlet detail pages
   mo-bros-pizza.html               │  (see roster in §7)
   happy-valley-bar-grill.html      │
   mickey-b-pizza.html              │
@@ -59,8 +58,8 @@ python -m http.server 8099   # then visit http://localhost:8099
 | Page | File | Notes |
 |---|---|---|
 | Home | `index.html` | Hero slideshow, restaurant grid, events strip, shortcuts. First-visit loader (see §6). |
-| Restaurants & Bars | `restaurants.html` | Cuisine filter; HK and England region groups. |
-| Outlet detail ×8 | see §7 | Same template: hero, intro/actions, info+map, delivery, sister grid, reward. |
+| Restaurants & Bars | `restaurants.html` | Cuisine filter; HK and England region groups. All 7 outlets. |
+| Outlet detail ×7 | see §7 | Same template: hero, intro/actions, info+map, delivery, sister grid, reward. |
 | Reward Program | `loyalty.html` | Eat & Earn: steps, rewards, how to join, FAQ, CTA. |
 | What's On | `whats-on.html` | Event cards + type/venue/year filters + "View older". |
 | About | `about.html` | Story, philosophy/history, CTA. |
@@ -126,8 +125,9 @@ Other named colors in use: sister/event/loader accents `#E21C19` / `#940E0C`; pa
 - **Sister restaurants:** `.sis-card` (logo tile) + `.sis-hover` (white overlay: red name + address).
 - **Event card (home):** `.ev-card`; **event card (What's On):** `.wo-card` (poster + date/title/venue).
 - **Media card:** `.wo-card.md-card` (source/date/title/excerpt).
+- **Delivery buttons:** `.deliv-btn.fp` / `.deliv-btn.kt` in the delivery section, `.dd-opt.fp` / `.dd-opt.kt` in the dropdowns. Add `has-sub` plus a `<span class="opt-sub">` child to stack a caption under the partner logo (used for Cadillac's Mickey B button).
 - **Info card (detail):** `.info-row` rows (Address / Hours / Tel / Email …) + map iframe.
-- **Reward strip:** shared block on home, restaurants, and all 8 outlet pages (not on loyalty/about/etc).
+- **Reward strip:** shared block on home, restaurants, and all 7 outlet pages (not on loyalty/about/etc).
 - **Loyalty page:** `.lp-*` (steps, rewards, join, FAQ) + red CTA band `.lp-cta`.
 - **About / Franchise:** `.ab-*` (photo + slogan card + prose + `.ab-cta`).
 - **Careers:** `.job` accordion + `.cr-card` (image cards).
@@ -156,38 +156,38 @@ One file of small guarded IIFEs — each no-ops if its markup is absent:
 
 ---
 
-## 7. Outlet roster (8)
+## 7. Outlet roster (7)
 
-Order in all listings: Hong Kong 1→7, then England (Gissons).
+Order in all listings: Hong Kong 1→6, then England (Gissons).
 
 | # | Display name | File | Cuisine (`data-cuisine`) | Area | Tel |
 |---|---|---|---|---|---|
 | 1 | Grappa's QRE | `grappas-qre.html` | italian | Wan Chai | +852 2868 0086 |
 | 2 | Cadillac Bar & Grill | `cadillac.html` | mexican | Causeway Bay | +852 2521 2322 |
-| 3 | The Mickey B Pizza Co. (Causeway Bay) | `mickey-b-causeway.html` | pizza | Causeway Bay¹ | +852 3100 0545 |
-| 4 | Mostaccioli Brothers (Aka Mo Bros) | `mostaccioli-brothers.html` | italian | Central | +852 2525 5770 |
-| 5 | Mo Bros Pizza | `mo-bros-pizza.html` | pizza | Central | +852 3421 1144 |
-| 6 | Happy Valley Bar & Grill | `happy-valley-bar-grill.html` | bargrill | Happy Valley | +852 2250 5722 |
-| 7 | The Mickey B Pizza Co. (Happy Valley) | `mickey-b-pizza.html` | pizza | Happy Valley | +852 2116 4882 |
-| 8 | Grappa's @ Gissons | `grappas-gissons.html` | italian | Devon, England | +44 (0) 1392 833077 |
+| 3 | Mostaccioli Brothers (Aka Mo Bros) | `mostaccioli-brothers.html` | italian | Central | +852 2525 5770 |
+| 4 | Mo Bros Pizza | `mo-bros-pizza.html` | pizza | Central | +852 3421 1144 |
+| 5 | Happy Valley Bar & Grill | `happy-valley-bar-grill.html` | bargrill | Happy Valley | +852 2250 5722 |
+| 6 | The Mickey B Pizza Co. (Happy Valley) | `mickey-b-pizza.html` | pizza | Happy Valley | +852 2116 4882 |
+| 7 | Grappa's @ Gissons | `grappas-gissons.html` | italian | Devon, England | +44 (0) 1392 833077 |
 
-¹ Display name/area use "Causeway Bay"; the postal address is Wan Chai (Shop 13 1/F, Causeway Centre, 28 Harbour Road). Its Facebook handle is `mickeybwanchai`.
+**The Mickey B Pizza Co. (Causeway Bay)** is a **virtual shop**, not a venue: it has no page of its own. All of its takeaway orders are picked up at Cadillac Bar & Grill, so it is represented only as an extra foodpanda button on the Cadillac page (see §8).
 
 **Reservation button** (data-driven per outlet, in intro + both sticky bars):
 - **Grappa's QRE** → "Book Online" → `https://book.bistrochat.com/grappas-qre`.
 - **Mostaccioli Brothers** → "Call to Book" → the outlet phone.
 - All other outlets → no reservation button. Every outlet still shows its phone in the action row and in the info section.
 
-**Assets** per outlet: `<prefix>-hero-N.jpg` (hero slides, card uses `-hero-1`), `<prefix>-logo.png`, plus gallery images where present. Prefixes: `grappas-qre`, `cadillac`, `mickey-b-causeway`, `mostaccioli`, `mo-bros-pizza`, `happy-valley`, `mickey-b`, `gissons`.
+**Assets** per outlet: `<prefix>-hero-N.jpg` (hero slides, card uses `-hero-1`), `<prefix>-logo.png`, plus gallery images where present. Prefixes: `grappas-qre`, `cadillac`, `mostaccioli`, `mo-bros-pizza`, `happy-valley`, `mickey-b`, `gissons`.
 
 ---
 
 ## 8. Integrations & data
 
 - **Reservation:** as per §7 (Bistrochat URL / `tel:`).
-- **Delivery (foodpanda + Keeta):** wired per outlet for the 7 Hong Kong outlets (intro dropdown, both sticky bars, and the delivery section). Gissons (UK) has no delivery partners, so it has no delivery section. Note: Cadillac and The Mickey B Pizza Co. (Causeway Bay) intentionally share one Keeta link (combined menus).
+- **Delivery (foodpanda + Keeta):** wired per outlet for the 6 Hong Kong outlets (intro dropdown, both sticky bars, and the delivery section). Gissons (UK) has no delivery partners, so it has no delivery section.
+- **Cadillac has a third delivery button:** a second foodpanda link labelled "The Mickey B Pizza Co." (the virtual shop that shares Cadillac's kitchen and pickup counter). It appears in the delivery section and in all three delivery dropdowns. Markup: add `has-sub` to `.deliv-btn` / `.dd-opt` and a `<span class="opt-sub">` label inside. Cadillac's single Keeta link covers both menus.
 - **Menus / Drink List / Festival:** buttons currently hotlink the live site's attachment files (`elgrande.com.hk/restaurants/attachments/…`). Replace with real/hosted menus before launch.
-- **Social:** El Grande group social (footer on every page + Contact) is **Instagram only** (`instagram.com/elgrande_hk`). Per-outlet intro socials: Grappa's QRE, Cadillac, Mostaccioli, Happy Valley have Facebook + Instagram; Mickey B (Causeway Bay) has Facebook only; Mo Bros Pizza, Mickey B (Happy Valley) and Gissons have none.
+- **Social:** El Grande group social (footer on every page + Contact) is **Instagram only** (`instagram.com/elgrande_hk`). Per-outlet intro socials: Grappa's QRE, Cadillac, Mostaccioli, Happy Valley have Facebook + Instagram; Mo Bros Pizza, Mickey B (Happy Valley) and Gissons have none.
 - **Loyalty / Eat & Earn:** registration URL `https://member.dtcirclerewards.com/register?ref=ELG`; QR asset `assets/eatearn-qr.png`.
 - **Careers apply:** `hr@elgrande.com.hk` + WhatsApp `5216 6993` (`https://wa.me/85252166993`).
 - **Contacts:** general `info@elgrande.com.hk`; group phone `+852 2833 2189`; HQ `401, 4/F Iuki Tower, 5 O'Brien Road, Wan Chai`.
@@ -213,6 +213,7 @@ Order in all listings: Hong Kong 1→7, then England (Gissons).
 - **Social links:** fill in remaining per-outlet Facebook/Instagram URLs as they are confirmed.
 - **Reservation:** extend online/phone booking to more outlets as channels are confirmed.
 - **Legal pages:** privacy / terms are not built.
+- **Unused assets:** `assets/mickey-b-causeway-*` (5 hero images + logo) are left over from a since-removed outlet page and are no longer referenced. Safe to delete.
 - **Accessibility:** production pass on focus-visible states, colour contrast on the cream background, keyboard operation of menus/dropdowns/accordion, and image `alt` text.
 
 ---

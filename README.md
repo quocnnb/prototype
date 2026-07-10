@@ -1,6 +1,6 @@
 # El Grande Concepts — Web Prototype
 
-Coded design prototype for the El Grande Concepts website redesign: home, 8 restaurant/bar detail pages, and the surrounding content pages (Restaurants index, Reward Program, What's On, About, Franchise, Media, Careers, Contact).
+Coded design prototype for the El Grande Concepts website redesign: home, 7 restaurant/bar detail pages, and the surrounding content pages (Restaurants index, Reward Program, What's On, About, Franchise, Media, Careers, Contact).
 
 - **Live:** https://quocnnb.github.io/prototype/
 - **Design source (Figma):** https://www.figma.com/design/ACP0GAwvaFLI2MclN1ENV9/Website
@@ -27,7 +27,7 @@ Flat files at the repo root — every page is a sibling `.html`, so `assets/`, `
 prototype/
 ├── index.html            # Home (served at /)
 ├── restaurants.html      # Restaurants & Bars index
-├── *.html                # 8 outlet detail pages + Reward/What's On/About/Franchise/Media/Careers/Contact
+├── *.html                # 7 outlet detail pages + Reward/What's On/About/Franchise/Media/Careers/Contact
 ├── css/styles.css        # All styles (design tokens as CSS variables at the top)
 ├── js/main.js            # All behavior (no framework, no dependencies)
 ├── assets/               # Images, photos, brand/outlet logos, icon SVGs

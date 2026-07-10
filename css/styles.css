@@ -97,6 +97,8 @@ p{margin:0}
 .dd-opt{display:flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:5px}
 .dd-opt.fp{background:var(--fp)}.dd-opt.kt{background:var(--keeta)}
 .dd-opt img{height:18px;width:auto}
+.dd-opt.has-sub{flex-direction:column;gap:3px;height:auto;padding:8px 16px}
+.dd-opt .opt-sub{font:600 11px/1.2 var(--dm);color:#fff;text-align:center}
 
 /* ============ SECTION HEADING ============ */
 .sec-info{padding:40px 0}.sec-deliv{padding:64px 0}.sec-ig{padding:64px 0}.sec-sis{padding:72px 0}.sec-reward{padding:120px 0}
@@ -116,10 +118,12 @@ p{margin:0}
 
 /* ============ DELIVERY SECTION ============ */
 .deliv-card{background:#fff;border-radius:5px;padding:20px 24px}
-.deliv-row{display:flex;gap:16px;align-items:center}
+.deliv-row{display:flex;gap:16px;align-items:stretch}
 .deliv-btn{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:5px}
 .deliv-btn.fp{background:var(--fp)}.deliv-btn.kt{background:var(--keeta)}
 .deliv-btn img{height:24px;width:auto}
+.deliv-btn.has-sub{flex-direction:column;gap:6px;padding:10px 24px}
+.deliv-btn .opt-sub{font:500 14px/1.2 var(--dm);color:#fff;text-align:center}
 
 /* ============ INSTAGRAM ============ */
 .ig-head{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;margin-bottom:24px}
