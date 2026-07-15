@@ -116,7 +116,7 @@ Other named colors in use: sister/event/loader accents `#E21C19` / `#940E0C`; pa
 
 ## 5. Components / patterns (class → meaning)
 
-- **Header/nav:** top bar + hanging logo card (`logoholder`). Active link uses `aria-current="page"`.
+- **Header/nav:** top bar + hanging logo card (`logoholder`). Active link uses `aria-current="page"`. Nav order (desktop `.nav-links`, mobile `#navMenu`, and footer "Visit" list all start the same): Restaurants, What's On, About, Reward Program, Blog, then Franchise, Media, Careers, Contact (Franchise onward are omitted from the short desktop bar). **Blog** is an external link-out to a separate WordPress site (`target="_blank"`), not a page in this repo — see §8.
 - **Sticky outlet nav** (detail pages only): desktop bar (`.sticky-d`) + mobile dots panel (`.sticky-m`); appears after scrolling past the intro card (`#trigger`).
 - **Page-header band:** `.rx-top` (breadcrumb + `.rx-h1` + optional `.rx-sub`) with a pink→cream gradient.
 - **Restaurant card:** `.rcard` (image + `.rcard-bar` name/logo + `.rcard-hover` white overlay revealing name + address). Used in home + restaurants grids.
@@ -126,6 +126,7 @@ Other named colors in use: sister/event/loader accents `#E21C19` / `#940E0C`; pa
 - **Event card (home):** `.ev-card`; **event card (What's On):** `.wo-card` (poster + date/title/venue).
 - **Media card:** `.wo-card.md-card` (source/date/title/excerpt).
 - **Delivery buttons:** `.deliv-btn.fp` / `.deliv-btn.kt` in the delivery section, `.dd-opt.fp` / `.dd-opt.kt` in the dropdowns. Add `has-sub` plus a `<span class="opt-sub">` child to stack a caption under the partner logo (used for Cadillac's Mickey B button).
+- **"A look around" gallery marquee** (5 outlet pages): `.ig-mask` (clip + edge fade) wrapping `.ig-track` (CSS `marq` keyframe scrolling `-50%`). The image list is duplicated (set A + set A) so the loop is seamless. These `<img>`s must stay **eager** (no `loading="lazy"`) — lazy images sit off-screen inside the `overflow:hidden` mask, never load, collapse the track width, and the section renders blank.
 - **Info card (detail):** `.info-row` rows (Address / Hours / Tel / Email …) + map iframe.
 - **Reward strip:** shared block on home, restaurants, and all 7 outlet pages (not on loyalty/about/etc).
 - **Loyalty page:** `.lp-*` (steps, rewards, join, FAQ) + red CTA band `.lp-cta`.
@@ -187,7 +188,8 @@ Order in all listings: Hong Kong 1→6, then England (Gissons).
 - **Delivery (foodpanda + Keeta):** wired per outlet for the 6 Hong Kong outlets (intro dropdown, both sticky bars, and the delivery section). Gissons (UK) has no delivery partners, so it has no delivery section.
 - **Cadillac has a third delivery button:** a second foodpanda link labelled "The Mickey B Pizza Co." (the virtual shop that shares Cadillac's kitchen and pickup counter). It appears in the delivery section and in all three delivery dropdowns. Markup: add `has-sub` to `.deliv-btn` / `.dd-opt` and a `<span class="opt-sub">` label inside. Cadillac's single Keeta link covers both menus.
 - **Menus / Drink List / Festival:** buttons currently hotlink the live site's attachment files (`elgrande.com.hk/restaurants/attachments/…`). Replace with real/hosted menus before launch.
-- **Social:** El Grande group social (footer on every page + Contact) is **Instagram only** (`instagram.com/elgrande_hk`). Per-outlet intro socials: Grappa's QRE, Cadillac, Mostaccioli, Happy Valley have Facebook + Instagram; Mo Bros Pizza, Mickey B (Happy Valley) and Gissons have none.
+- **Blog:** the Blog nav item points to a separate WordPress site via an external link (currently the placeholder `https://www.elgrande.com.hk/blog`, opens in a new tab). Confirm the final URL/subdomain; no blog page is built in this repo and none is planned here — it stays a link-out.
+- **Social:** El Grande group social (footer on every page) is **Instagram only** (`instagram.com/elgrande_hk`). Per-outlet intro socials: Grappa's QRE, Cadillac, Mostaccioli, Happy Valley have Facebook + Instagram; Mo Bros Pizza, Mickey B (Happy Valley) and Gissons have none.
 - **Loyalty / Eat & Earn:** registration URL `https://member.dtcirclerewards.com/register?ref=ELG`; QR asset `assets/eatearn-qr.png`.
 - **Careers apply:** `hr@elgrande.com.hk` + WhatsApp `5216 6993` (`https://wa.me/85252166993`).
 - **Contacts:** general `info@elgrande.com.hk`; group phone `+852 2833 2189`; HQ `401, 4/F Iuki Tower, 5 O'Brien Road, Wan Chai`.
@@ -223,5 +225,5 @@ Order in all listings: Hong Kong 1→6, then England (Gissons).
 - Every page is hand-maintained with balanced `<div>`/`</div>` and CSS `{`/`}`. Re-check balance after edits.
 - Cross-page edits (shared nav/footer/sprite/modal) must be applied to **every** page — script the change across `*.html` rather than editing by hand.
 - **No en/em dashes** (– —) in copy; use "to", a comma, or "and".
-- Images: real `alt` (or `alt=""` + `aria-hidden` if decorative); `loading="lazy" decoding="async"`. All image `src` are local (`assets/…`).
+- Images: real `alt` (or `alt=""` + `aria-hidden` if decorative); `loading="lazy" decoding="async"` (exception: the "A look around" marquee images are eager — see §5). All image `src` are local (`assets/…`).
 - Escape `&` as `&amp;` and apostrophes as `&#39;` inside attributes.
