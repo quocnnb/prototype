@@ -55,8 +55,10 @@ p{margin:0}
 .hero .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,8,.55),rgba(20,12,8,0) 52%)}
 .hero-pill-wrap{position:absolute;left:0;right:0;bottom:80px;display:flex;justify-content:center}
 .hero-pill{width:var(--container);background:var(--hero-pill);display:flex;gap:32px;align-items:center;padding:8px 20px;border-radius:999px}
-.crumb{flex:1 1 0;min-width:0;display:flex;gap:10px;align-items:center;font-size:12px;color:var(--crumb);line-height:1.4;white-space:nowrap}
-.crumb .reg{font-weight:400}.crumb .xl{font-weight:200}.crumb .bd{font-weight:700}
+.crumb{flex:1 1 0;min-width:0;display:flex;gap:10px;align-items:center;font-size:12px;color:var(--crumb);line-height:1.4;white-space:nowrap;overflow:hidden}
+.crumb .reg{font-weight:400;flex:0 0 auto}.crumb .xl{font-weight:200;flex:0 0 auto}
+.crumb .bd{font-weight:700;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.crumb a.reg{max-width:45vw;overflow:hidden;text-overflow:ellipsis}
 .crumb a{color:inherit;text-decoration:none}.crumb a:hover{color:#fff;text-decoration:underline}
 .fact{display:flex;align-items:center;white-space:nowrap}
 .fact .lab{font-size:12px;color:var(--crumb);line-height:1.4}
@@ -239,7 +241,7 @@ p{margin:0}
 @media(max-width:900px){
   .fact{display:none}
   .hero-pill{gap:16px}
-  .crumb{flex:none}
+  .crumb{flex:1 1 auto;min-width:0}
   .intro-wrap{width:var(--container);margin:-48px auto 40px}
   .intro{padding:24px;border-radius:12px 4px 24px 4px}
   .intro-title{flex-direction:column;align-items:flex-start;gap:12px}
@@ -598,7 +600,12 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 .job-detail ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font:400 15px/1.5 var(--dm);color:var(--body)}
 .job-apply{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 .job-loadwrap{display:flex;justify-content:center;margin-top:20px}
-@media(max-width:560px){.job-head{flex-direction:column;align-items:flex-start;gap:12px}.job-toggle{width:100%;justify-content:center}}
+@media(max-width:640px){
+  .cr-toolbar{flex-direction:column;align-items:stretch}
+  .cr-toolbar .wo-search,.cr-toolbar .wo-select{width:100%;max-width:none;flex:1 1 auto}
+  .job-head{flex-direction:column;align-items:stretch;gap:14px}
+  .job-toggle{width:100%;justify-content:center;background:var(--bg);border-radius:6px;padding:10px 12px}
+}
 
 /* careers: why-join image cards (landscape, content bottom + dark gradient) */
 .cr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
