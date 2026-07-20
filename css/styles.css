@@ -605,7 +605,7 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
   .cr-toolbar .wo-search,.cr-toolbar .wo-select{width:100%;max-width:none;flex:1 1 auto}
   .job{position:relative}
   .job-head{align-items:flex-start;gap:0;padding-right:44px}
-  .job-toggle{position:absolute;top:14px;right:16px;width:34px;height:34px;padding:0;gap:0;justify-content:center;background:#f0f0f0;border-radius:8px}
+  .job-toggle{position:absolute;top:14px;right:16px;width:34px;height:34px;padding:0;gap:0;justify-content:center;background:rgba(240,240,240,0.55);border-radius:8px}
   .jt-label{display:none}
 }
 
