@@ -603,8 +603,10 @@ body.home .head-l .h2{font-size:36px;letter-spacing:-0.36px}
 @media(max-width:640px){
   .cr-toolbar{flex-direction:column;align-items:stretch}
   .cr-toolbar .wo-search,.cr-toolbar .wo-select{width:100%;max-width:none;flex:1 1 auto}
-  .job-head{flex-direction:column;align-items:stretch;gap:14px}
-  .job-toggle{width:100%;justify-content:center;background:#f0f0f0;border-radius:6px;padding:10px 12px}
+  .job{position:relative}
+  .job-head{align-items:flex-start;gap:0;padding-right:44px}
+  .job-toggle{position:absolute;top:14px;right:16px;width:34px;height:34px;padding:0;gap:0;justify-content:center;background:#f0f0f0;border-radius:8px}
+  .jt-label{display:none}
 }
 
 /* careers: why-join image cards (landscape, content bottom + dark gradient) */
